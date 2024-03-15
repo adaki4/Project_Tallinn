@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,22 +11,42 @@ public class PlayerMovement : MonoBehaviour
     private float _topLimit=5000;
     [SerializeField]
     private float _speed=50;
+    [SerializeField]
     private Vector3 _target;
+    private Camera cam;
+    private Vector2 _minimalScreenPosition;
+    private Vector2 _maximalScreenPosition;
+
     #endregion
+
     #region methods
-    public bool GoToPoint(Vector2 point)
+    // Move to the point if clicked inside playable area
+    public void GoToPoint(Vector2 point)
     {
-        if((point.y<_topLimit))//&&is inside of screen limits
-        {
-            _target= point;
-        }
-        return false;
+        //version 1 -> hard limit
+        // if (point.y<_topLimit 
+        //     && _minimalScreenPosition.x < point.x 
+        //     && _minimalScreenPosition.y < point.y
+        //     && point.x < _maximalScreenPosition.x 
+        //     && point.y < _maximalScreenPosition.y
+        //     )
+        // {
+        //     _target= point;
+        // }
+        // version 2 -> clamp
+        _target.x = Mathf.Clamp(point.x, _minimalScreenPosition.x, _maximalScreenPosition.x);
+        _target.y = Mathf.Clamp(point.y, _minimalScreenPosition.y, _topLimit);
     }
     #endregion
     
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
+        _minimalScreenPosition = new Vector2(cam.transform.position.x - cam.orthographicSize * Screen.width/Screen.height, - cam.orthographicSize);
+        _maximalScreenPosition = new Vector2(- _minimalScreenPosition.x, cam.orthographicSize);
+        _topLimit = _maximalScreenPosition.y / 2;
+        
         
     }
 
