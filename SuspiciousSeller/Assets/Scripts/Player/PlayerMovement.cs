@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         cam = Camera.main;
         _minimalScreenPosition = new Vector2(cam.transform.position.x - cam.orthographicSize * Screen.width/Screen.height, - cam.orthographicSize);
         _maximalScreenPosition = new Vector2(- _minimalScreenPosition.x, cam.orthographicSize);
-        _topLimit = _maximalScreenPosition.y / 2;
+        _topLimit = _maximalScreenPosition.y - (_maximalScreenPosition.y * 2 / 3) ;
         
         
     }
