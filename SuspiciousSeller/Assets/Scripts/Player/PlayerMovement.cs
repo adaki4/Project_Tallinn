@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         transform.position=Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
     }
 }

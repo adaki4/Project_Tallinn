@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,6 +15,8 @@ public class UIManager : MonoBehaviour
     private GameObject _resumeButton;
     [SerializeField]
     private GameObject _pauseButton;
+    public static UIManager Instance;
+
     #endregion
     #region methods
     public void loadScene(string sceneName) //return value? error if not found?
@@ -41,6 +42,17 @@ public class UIManager : MonoBehaviour
         loadScene("PlayScene");
     }
     #endregion
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
       _playerInput=_player.GetComponent<PlayerInput>();
