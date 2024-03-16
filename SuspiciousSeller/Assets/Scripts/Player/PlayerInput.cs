@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems; 
+
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called before the first frame update
     #region references
     PlayerMovement _movementComponent;
     PlayerAttack _attack;

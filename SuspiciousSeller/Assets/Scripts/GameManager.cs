@@ -7,10 +7,8 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static GameManager Instance;
-    [SerializeField] //move to game manager
-    // GameObject _player;
-    // PlayerInput _playerInput;
-    // PlayerMovement _playerMovement;
+    public PlayerManager playerManager;
+    public UIManager uiManager;
     private void Awake()
     {
         if (Instance != null)
@@ -24,6 +22,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        playerManager.player = GameObject.Find("Player");
         SceneManager.LoadScene("PlayScene"); //maybe instead of working directly with unity scene manager we can create a script that manages the 
         //loading and unloading and everything
     }

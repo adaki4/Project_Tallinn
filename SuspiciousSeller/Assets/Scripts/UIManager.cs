@@ -7,15 +7,11 @@ public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     #region references
-    [SerializeField] //move to game manager
-    GameObject _player;
-    PlayerInput _playerInput;
-    PlayerMovement _playerMovement;
     [SerializeField]
     private GameObject _resumeButton;
     [SerializeField]
     private GameObject _pauseButton;
-    public static UIManager Instance;
+    private PlayerManager playerManager;
 
     #endregion
     #region methods
@@ -25,15 +21,15 @@ public class UIManager : MonoBehaviour
     }
     public void pauseScene()
     {
-        _playerInput.enabled=false;
-        _playerMovement.enabled=false;
+        playerManager.playerInput.enabled = false;
+        playerManager.playerMovement.enabled = false;
         _resumeButton.SetActive(true);
         _pauseButton.SetActive(false);
     }
     public void resumeScene()
     {
-        _playerInput.enabled = true;
-        _playerMovement.enabled = true;
+        playerManager.playerInput.enabled = true;
+        playerManager.playerMovement.enabled = true;
         _resumeButton.SetActive(false);
         _pauseButton.SetActive(true);
     }
@@ -42,26 +38,14 @@ public class UIManager : MonoBehaviour
         loadScene("PlayScene");
     }
     #endregion
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
     void Start()
     {
-      _playerInput=_player.GetComponent<PlayerInput>();
-      _playerMovement=_player.GetComponent<PlayerMovement>();
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
