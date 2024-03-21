@@ -7,42 +7,42 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneDoor : MonoBehaviour
 {
     #region references
-    private bool enterAllowed = false;
+    private bool _enterAllowed = false;
     [SerializeField]
-    private string loadThisScene;
+    private string _loadThisScene;
     #endregion
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<MerchantDoor>()) {
-            loadThisScene = "StoreScene";
-            enterAllowed = true;
+            _loadThisScene = "StoreScene";
+            _enterAllowed = true;
             Debug.Log("entered door");
-            
+
         }
         else if (collision.GetComponent<PlaySceneDoor>()) {
-            loadThisScene = "PlayScene";
-            enterAllowed = true;
+            _loadThisScene = "PlayScene";
+            _enterAllowed = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.GetComponent<PlaySceneDoor>() || collision.GetComponent<MerchantDoor>()) 
+        if (collision.GetComponent<PlaySceneDoor>() || collision.GetComponent<MerchantDoor>())
         {
-            enterAllowed = false;
+            _enterAllowed = false;
         }
     }
     #endregion
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enterAllowed) {
-            SceneManager.LoadScene(loadThisScene);
+        if (_enterAllowed) {
+            SceneManager.LoadScene(_loadThisScene);
         }
     }
 }

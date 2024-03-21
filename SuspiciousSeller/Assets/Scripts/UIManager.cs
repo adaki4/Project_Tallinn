@@ -11,31 +11,32 @@ public class UIManager : MonoBehaviour
     private GameObject _resumeButton;
     [SerializeField]
     private GameObject _pauseButton;
+    [SerializeField]
     private PlayerManager playerManager;
-
     #endregion
+
     #region methods
-    public void loadScene(string sceneName) //return value? error if not found?
+    public void LoadScene(string sceneName) //return value? error if not found?
     {
         SceneManager.LoadScene(sceneName);
     }
-    public void pauseScene()
+    public void PauseScene()
     {
-        playerManager.playerInput.enabled = false;
-        playerManager.playerMovement.enabled = false;
+        playerManager.PlayerInput.enabled = false;
+        playerManager.PlayerMovement.enabled = false;
         _resumeButton.SetActive(true);
         _pauseButton.SetActive(false);
     }
-    public void resumeScene()
+    public void ResumeScene()
     {
-        playerManager.playerInput.enabled = true;
-        playerManager.playerMovement.enabled = true;
+        playerManager.PlayerInput.enabled = true;
+        playerManager.PlayerMovement.enabled = true;
         _resumeButton.SetActive(false);
         _pauseButton.SetActive(true);
     }
-    public void newGame()
+    public void NewGame()
     {
-        loadScene("PlayScene");
+        this.LoadScene("PlayScene");
     }
     #endregion
     void Start()

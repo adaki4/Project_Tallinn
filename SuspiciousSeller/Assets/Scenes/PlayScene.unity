@@ -373,9 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5579da621a80b324ba92986cd6390951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 915360521}
   _resumeButton: {fileID: 2077453116}
   _pauseButton: {fileID: 714318509}
+  playerManager: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 469371944}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: pauseScene
+        m_MethodName: PauseScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33a1d9c71e9af84f98cde80e9f01a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 915360521}
+  player: {fileID: 0}
 --- !u!1 &1102060386
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 469371944}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: resumeScene
+        m_MethodName: ResumeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
