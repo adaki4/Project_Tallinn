@@ -41,7 +41,9 @@ public class UIManager : MonoBehaviour
     #endregion
     void Start()
     {
-        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+        if (SceneManager.GetActiveScene().name != "MainMenu") {
+            playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+        }
     }
 
     // Update is called once per frame
