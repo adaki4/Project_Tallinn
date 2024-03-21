@@ -24,10 +24,10 @@ public class PlayerMovement : MonoBehaviour
     public void GoToPoint(Vector2 point)
     {
         //version 1 -> hard limit
-        // if (point.y<_topLimit 
-        //     && _minimalScreenPosition.x < point.x 
+        // if (point.y < _topLimit
+        //     && _minimalScreenPosition.x < point.x
         //     && _minimalScreenPosition.y < point.y
-        //     && point.x < _maximalScreenPosition.x 
+        //     && point.x < _maximalScreenPosition.x
         //     && point.y < _maximalScreenPosition.y
         //     )
         // {
@@ -38,16 +38,16 @@ public class PlayerMovement : MonoBehaviour
         _target.y = Mathf.Clamp(point.y, _minimalScreenPosition.y, _topLimit);
     }
     #endregion
-    
+
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
-        _minimalScreenPosition = new Vector2(cam.transform.position.x - cam.orthographicSize * Screen.width/Screen.height, - cam.orthographicSize);
+        _minimalScreenPosition = new Vector2(cam.transform.position.x - cam.orthographicSize * Screen.width / Screen.height, - cam.orthographicSize);
         _maximalScreenPosition = new Vector2(- _minimalScreenPosition.x, cam.orthographicSize);
         _topLimit = _maximalScreenPosition.y - (_maximalScreenPosition.y * 2 / 3) ;
-        
-        
+
+
     }
 
     // Update is called once per frame

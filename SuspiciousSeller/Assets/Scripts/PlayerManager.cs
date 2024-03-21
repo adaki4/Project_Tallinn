@@ -5,23 +5,23 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     #region references
-    [SerializeField]
     public GameObject player;
-    public PlayerInput playerInput {get; set;}
-    public PlayerMovement playerMovement {get; set;}
+    public PlayerInput PlayerInput {get; set;}
+    public PlayerMovement PlayerMovement {get; set;}
     #endregion
+
     #region methods
     #endregion
     void Start()
     {
         player = GameObject.Find("Player");
-        playerMovement = player.GetComponent<PlayerMovement>();
-        playerInput = player.GetComponent<PlayerInput>();
+        PlayerMovement = player.GetComponent<PlayerMovement>();
+        PlayerInput = player.GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
