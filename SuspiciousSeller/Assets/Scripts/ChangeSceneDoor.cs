@@ -24,6 +24,10 @@ public class ChangeSceneDoor : MonoBehaviour
             _loadThisScene = "PlayScene";
             _enterAllowed = true;
         }
+        else if (collision.GetComponent<PlayScene2Door>()) {
+            _loadThisScene = "PlayScene2";
+            _enterAllowed = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.GetComponent<PlaySceneDoor>() || collision.GetComponent<MerchantDoor>())
