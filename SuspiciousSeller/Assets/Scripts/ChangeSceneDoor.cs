@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ChangeSceneDoor : MonoBehaviour
 {
     #region references
-    //private bool _enterAllowed = false;
     [SerializeField]
     private string _loadThisScene;
     #endregion
@@ -16,38 +13,18 @@ public class ChangeSceneDoor : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<MerchantDoor>()) {
             _loadThisScene = "StoreScene";
-            //_enterAllowed = true;
-            Debug.Log("entered door");
+            //Debug.Log("entered door to StoreScene");
 
         }
-        else if (collision.GetComponent<PlaySceneDoor>()) {
-            _loadThisScene = "PlayScene";
-            //_enterAllowed = true;
+        else if (collision.GetComponent<PlayScene1Door>()) {
+            _loadThisScene = "PlayScene1";
+            //Debug.Log("entered door to PlayScene1");
         }
         else if (collision.GetComponent<PlayScene2Door>()) {
             _loadThisScene = "PlayScene2";
-           // _enterAllowed = true;
+            //Debug.Log("entered door to PlayScene2");
         }
         ScenesManager.instance.LoadScene(_loadThisScene); 
     }
-    //private void OnTriggerExit2D(Collider2D collision) {
-    //    if (collision.GetComponent<PlaySceneDoor>() || collision.GetComponent<MerchantDoor>())
-    //    {
-    //        _enterAllowed = false;
-    //    }
-    //}
     #endregion
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update() //when done in the update explodes
-    {
-        //if (_enterAllowed) {
-        //    SceneManager.LoadScene(_loadThisScene);
-        //}
-    }
 }
