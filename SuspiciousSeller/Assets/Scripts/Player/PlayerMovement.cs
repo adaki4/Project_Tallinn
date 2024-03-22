@@ -37,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
         _target.x = Mathf.Clamp(point.x, _minimalScreenPosition.x, _maximalScreenPosition.x);
         _target.y = Mathf.Clamp(point.y, _minimalScreenPosition.y, _topLimit);
     }
+
+    public void UpdateCamera()
+    {
+        if (cam != null) { cam = Camera.main; } 
+    }
     #endregion
 
     // Start is called before the first frame update

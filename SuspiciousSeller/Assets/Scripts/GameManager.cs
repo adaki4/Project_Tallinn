@@ -13,6 +13,16 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
+    public void PausePlay()
+    {
+        Debug.Log("gAme");
+        playerManager.PlayerPause();
+        //more things to pause/deactivate
+    }
+    public void ResumePlay()
+    {
+        playerManager.PlayerResume();
+    }
     #endregion
     private void Awake()
     {
@@ -27,9 +37,12 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        playerManager.player = GameObject.Find("Player");
-        SceneManager.LoadScene("PlayScene"); //maybe instead of working directly with unity scene manager we can create a script that manages the
-        //loading and unloading and everything
+       /// playerManager.player = GameObject.Find("Player");
+
+        if (SceneManager.GetActiveScene().name != "MainMenu"&&playerManager==null)
+        {
+            playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+        }
     }
 
     // Update is called once per frame

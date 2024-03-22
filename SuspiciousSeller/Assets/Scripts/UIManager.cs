@@ -11,39 +11,45 @@ public class UIManager : MonoBehaviour
     private GameObject _resumeButton;
     [SerializeField]
     private GameObject _pauseButton;
-    [SerializeField]
-    private PlayerManager playerManager;
+    public static UIManager instance;
     #endregion
 
     #region methods
-    public void LoadScene(string sceneName) //return value? error if not found?
-    {
-        SceneManager.LoadScene(sceneName);
-    }
+   
     public void PauseScene()
     {
-        playerManager.PlayerInput.enabled = false;
-        playerManager.PlayerMovement.enabled = false;
+        Debug.Log("UI");
+        GameManager.instance.PausePlay();
         _resumeButton.SetActive(true);
         _pauseButton.SetActive(false);
     }
     public void ResumeScene()
     {
-        playerManager.PlayerInput.enabled = true;
-        playerManager.PlayerMovement.enabled = true;
+        GameManager.instance.ResumePlay();  
         _resumeButton.SetActive(false);
         _pauseButton.SetActive(true);
     }
     public void NewGame()
     {
-        this.LoadScene("PlayScene");
+        ScenesManager.instance.NewGame();
     }
     #endregion
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     void Start()
     {
-        if (SceneManager.GetActiveScene().name != "MainMenu") {
-            playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
-        }
+        
     }
 
     // Update is called once per frame
