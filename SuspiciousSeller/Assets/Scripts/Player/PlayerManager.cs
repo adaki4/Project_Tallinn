@@ -48,9 +48,4 @@ public class PlayerManager : MonoBehaviour
         PlayerInput = player.GetComponent<PlayerInput>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

@@ -2,6 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayScene2Door : MonoBehaviour
+public class PlayScene1Door : MonoBehaviour
 {
 }

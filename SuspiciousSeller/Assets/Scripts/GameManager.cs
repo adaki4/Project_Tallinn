@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
     #region references
     public static GameManager instance;
     public PlayerManager playerManager;
@@ -35,19 +34,16 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    // Start is called before the first frame update
     void Start()
     {
        /// playerManager.player = GameObject.Find("Player");
 
-        if (SceneManager.GetActiveScene().name != "MainMenu"&&playerManager==null)
+        if (SceneManager.GetActiveScene().name != "MainMenu" && playerManager==null)
         {
             playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
