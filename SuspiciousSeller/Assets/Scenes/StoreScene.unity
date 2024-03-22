@@ -130,21 +130,73 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7129903543211736256, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_Size.x
+      value: 2.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736256, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_Size.y
+      value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736256, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.022302985
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736256, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.042901814
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736256, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736256, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736257, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 736ff2797a8d82542b6570e428d7789d, type: 3}
+    - target: {fileID: 7129903543211736257, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7129903543211736259, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736261, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: playScene1Door
+      value: 
+      objectReference: {fileID: 1326908062}
+    - target: {fileID: 7129903543211736261, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: playScene2Door
+      value: 
+      objectReference: {fileID: 1638935886}
     - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.59264
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6152185
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03
+      value: -0.1127
       objectReference: {fileID: 0}
     - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: 0.0313
       objectReference: {fileID: 0}
     - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -177,6 +229,10 @@ PrefabInstance:
     - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129903543211736262, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
@@ -759,7 +815,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ef5791dc8057724083d8bfdfa2af3f2, type: 3}
   m_Color: {r: 0.5246657, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -938,7 +994,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ef5791dc8057724083d8bfdfa2af3f2, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -1008,6 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerManager: {fileID: 1024320452}
   uiManager: {fileID: 1268321826}
+  canMovePlayer: 0
 --- !u!4 &1724897035
 Transform:
   m_ObjectHideFlags: 0
