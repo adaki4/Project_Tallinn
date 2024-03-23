@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MerchantDoor : MonoBehaviour
+public class MerchantDoor : Door
 { 
     void Start() {
         if (GameManager.instance.canMovePlayer) {

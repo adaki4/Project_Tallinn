@@ -17,7 +17,7 @@ public class ChangeSceneDoor : MonoBehaviour
 
     #region methods
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (_canEnterDoor) {
+        if (_canEnterDoor && collision.GetComponent<Door>()) {
             if (collision.GetComponent<MerchantDoor>()) {
                 _loadThisScene = "StoreScene";
                 //Debug.Log("entered door to StoreScene");
