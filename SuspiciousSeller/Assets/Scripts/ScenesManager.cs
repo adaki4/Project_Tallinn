@@ -7,6 +7,7 @@ public class ScenesManager : MonoBehaviour
 {
     static public ScenesManager instance;
 
+    public string lastScene; 
     #region methods
     public void NewGame()
     {
@@ -14,6 +15,7 @@ public class ScenesManager : MonoBehaviour
     }
     public void LoadScene(string name)
     {
+        lastScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(name);
     }
     #endregion
@@ -30,6 +32,6 @@ public class ScenesManager : MonoBehaviour
         {
             instance = this;
         }
+        
     }
-
 }

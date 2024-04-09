@@ -9,12 +9,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public PlayerManager playerManager;
     public UIManager uiManager;
+    public bool canMovePlayer = false;
     #endregion
 
     #region methods
     public void PausePlay()
     {
-        Debug.Log("gAme");
+        Debug.Log("Game");
         playerManager.PlayerPause();
         //more things to pause/deactivate
     }
@@ -40,10 +41,11 @@ public class GameManager : MonoBehaviour
     {
        /// playerManager.player = GameObject.Find("Player");
 
-        if (SceneManager.GetActiveScene().name != "MainMenu" && playerManager==null)
+        if (SceneManager.GetActiveScene().name != "MainMenu" && playerManager == null)
         {
             playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
         }
+        canMovePlayer = true;
     }
 
 }
