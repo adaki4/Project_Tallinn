@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MerchantDoor : Door
 { 
-    void Start() {
-        if (GameManager.instance.canMovePlayer) {
-            PlayerManager.instance.PlayerMovement.MoveInstantly(gameObject.transform.position);
-        }
-    }
+    // void Start() {
+    //     if (GameManager.instance.canMovePlayer) {
+    //         PlayerManager.instance.PlayerMovement.MoveInstantly(gameObject.transform.position);
+    //     }
+    // }
 }

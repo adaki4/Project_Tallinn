@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2974072729070278143}
   - component: {fileID: 2974072729070278139}
   - component: {fileID: 2974072729070278136}
-  - component: {fileID: 2974072729070278138}
   - component: {fileID: 2974072729070278117}
   m_Layer: 0
   m_Name: Player
@@ -139,22 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fd94efe2c7e6e488b9c503cb9ac294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _topLimit: 5000
   _speed: 30
   _target: {x: 0, y: 0, z: 0}
---- !u!114 &2974072729070278138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2974072729070278140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54ef4d0c06aa80b4887e8e8a0e6eb892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadThisScene: 
 --- !u!50 &2974072729070278117
 Rigidbody2D:
   serializedVersion: 4

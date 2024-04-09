@@ -234,7 +234,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7129903543211736261, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3881a40a0aa315845ab605b2ff7af09a, type: 3}
 --- !u!1 &701535986
 GameObject:
@@ -729,26 +730,14 @@ GameObject:
   - component: {fileID: 1326908066}
   - component: {fileID: 1326908065}
   - component: {fileID: 1326908064}
-  - component: {fileID: 1326908063}
+  - component: {fileID: 1326908067}
   m_Layer: 0
-  m_Name: PlaySceneDoor
+  m_Name: PlayScene1Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1326908063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326908062}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df531bcecd11b3b4f8db8c3f0fdaca31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1326908064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -842,6 +831,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -0.37, y: -1.39, z: 0}
+--- !u!114 &1326908067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326908062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7302678185ed448ad8b4ff54a0e763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canEnterDoor: 0
+  canInteract: 0
+  _targetScene: PlayScene1
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1549006982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,9 +1035,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1638935886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 224305118395d1f4582f62797ea0ca23, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a7302678185ed448ad8b4ff54a0e763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canEnterDoor: 0
+  canInteract: 0
+  _targetScene: PlayScene2
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1724897033
 GameObject:
   m_ObjectHideFlags: 0
