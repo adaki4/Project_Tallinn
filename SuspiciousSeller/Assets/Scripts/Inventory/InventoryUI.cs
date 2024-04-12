@@ -23,6 +23,7 @@ public class InventoryUI : MonoBehaviour {
 		// Check to see if we should open/close the inventory
 		if (Input.GetButtonDown("Inventory"))
 		{
+			Debug.Log("Open inventory");
 			inventoryUI.SetActive(!inventoryUI.activeSelf);
 		}
 	}

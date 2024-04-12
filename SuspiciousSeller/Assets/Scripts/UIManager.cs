@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class UIManager : MonoBehaviour
     private GameObject _resumeButton;
     [SerializeField]
     private GameObject _pauseButton;
+    [SerializeField] 
+    private TMP_Text _moneyText;
+
     public static UIManager instance;
     #endregion
 
@@ -30,7 +34,14 @@ public class UIManager : MonoBehaviour
     public void NewGame()
     {
         ScenesManager.instance.NewGame();
+    } 
+    
+    //update info about player (money, time etc) maybe adding money should work better with events? 
+    public void UpdateHUD(int money) 
+    {
+        _moneyText.SetText(money.ToString());
     }
+
     #endregion
     private void Awake()
     {
@@ -45,5 +56,10 @@ public class UIManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+    private void Start()
+    {
+        _moneyText.SetText("0");
+    }
+
 
 }

@@ -23,7 +23,17 @@ public class GameManager : MonoBehaviour
     {
         playerManager.PlayerResume();
     }
+
+    public void AddMoneyToPlayer(int q)
+    {
+        //update ui
+        //add money
+        playerManager.AddMoney(q);
+        uiManager.UpdateHUD(playerManager.GetMoney());
+    }
     #endregion
+
+    
     private void Awake()
     {
         if (instance != null)

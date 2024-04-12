@@ -12,8 +12,18 @@ public class ItemPickup : Interactable {
 		PickUp();	// Pick it up!
 	}
 
-	// Pick up the item
-	void PickUp ()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (canInteract)
+        {
+            canInteract = false;
+            Interact();
+        }
+        // PlayerManager.instance.PlayerMovement.MoveInstantly(collision.gameObject.transform.position);
+    }
+
+    // Pick up the item
+    void PickUp ()
 	{
 		Debug.Log("Picking up " + item.name);
 		bool wasPickedUp = Inventory.instance.Add(item);	// Add to inventory

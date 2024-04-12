@@ -42,6 +42,8 @@ public class InventorySlot : MonoBehaviour {
 		if (item != null)
 		{
 			item.Use();
+            Inventory.instance.Remove(item);
+            //ClearSlot(); //if we are not managing quantities
 		}
 	}
 

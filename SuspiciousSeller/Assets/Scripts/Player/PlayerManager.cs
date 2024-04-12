@@ -15,6 +15,10 @@ public class PlayerManager : MonoBehaviour
     bool _active;
     #endregion
 
+    #region parameters
+    protected int playerMoney;
+    #endregion
+
     #region methods
     public void PlayerPause()
     {
@@ -27,6 +31,24 @@ public class PlayerManager : MonoBehaviour
         PlayerInput.enabled = true;
         PlayerMovement.enabled = true;
     }
+
+    public void AddMoney(int q)
+    {
+        Debug.Log("Player gained " + q + " coins!");
+        playerMoney += q;
+    }
+
+    public void Substractoney(int q)
+    {
+        playerMoney -= q;
+    }
+
+    public bool CanAfford(int q)
+    {
+        return playerMoney >= q;
+    }
+
+    public int GetMoney() { return playerMoney; }
     #endregion
     private void Awake()
     {
@@ -46,6 +68,8 @@ public class PlayerManager : MonoBehaviour
         player = GameObject.Find("Player");
         PlayerMovement = player.GetComponent<PlayerMovement>();
         PlayerInput = player.GetComponent<PlayerInput>();
+
+        playerMoney = 0;
     }
 
 }
