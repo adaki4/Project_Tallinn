@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    #region references
     static DontDestroy instance;
-    #endregion
+    
     private void Awake()
     {
         if(instance != null)

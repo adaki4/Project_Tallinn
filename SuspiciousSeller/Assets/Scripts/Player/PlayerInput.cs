@@ -6,14 +6,14 @@ using UnityEngine.EventSystems;
 
 public class PlayerInput : MonoBehaviour
 {
-    #region references
+    references
     PlayerMovement _movementComponent;
     PlayerAttack _attack;
     Camera _mainCamera;
-    #endregion
+    
 
-    #region methods
-    #endregion
+    methods
+    
     void Start()
     {
         _movementComponent = GetComponent<PlayerMovement>();

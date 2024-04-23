@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    #region references
+    references
     [SerializeField]
     private GameObject _resumeButton;
     [SerializeField]
@@ -14,9 +14,9 @@ public class UIManager : MonoBehaviour
     private TMP_Text _moneyText;
 
     public static UIManager instance;
-    #endregion
+    
 
-    #region methods
+    methods
    
     public void PauseScene()
     {
@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         _moneyText.SetText(money.ToString());
     }
 
-    #endregion
+    
     private void Awake()
     {
         if (instance != null)

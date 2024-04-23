@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 public class NPCsRandomMovement : MonoBehaviour {
     
-    #region variables
     [SerializeField]
     private float _movementSpeed;
     private bool _YEdgeDirection;
     private Vector2 _randomTarget = new Vector2(0, 0);
-    private System.Random random = new System.Random();
-    #endregion
+    private System.Random _random = new System.Random();
+    
     private void ChangeDirection() {
         int newX, newY;
         if (_YEdgeDirection) {
-            newX = random.Next((int) CameraManager.instance.minimalScreenPosition.x, (int) CameraManager.instance.maximalScreenPosition.x);
+            newX = _random.Next((int) CameraManager.instance.minimalScreenPosition.x, (int) CameraManager.instance.maximalScreenPosition.x);
             newY = (int) minimalOrMaximalEdge( CameraManager.instance.minimalScreenPosition.y, CameraManager.instance.topScreenLimit);
             _YEdgeDirection = false;
         }
         else {
             newX = (int) minimalOrMaximalEdge( CameraManager.instance.minimalScreenPosition.x, CameraManager.instance.maximalScreenPosition.x);
-            newY = random.Next((int) CameraManager.instance.minimalScreenPosition.y, (int) CameraManager.instance.topScreenLimit);
+            newY = _random.Next((int) CameraManager.instance.minimalScreenPosition.y, (int) CameraManager.instance.topScreenLimit);
             _YEdgeDirection = true;
         }
 
@@ -27,7 +26,7 @@ public class NPCsRandomMovement : MonoBehaviour {
         _randomTarget.y = newY;
     }
     private float minimalOrMaximalEdge(float minimalEdge, float maximalEdge) {
-        if (random.Next(0, 2) == 0) {
+        if (_random.Next(0, 2) == 0) {
             return minimalEdge;
         }
         return maximalEdge;

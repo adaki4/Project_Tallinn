@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     // Start is called before the first frame update
-    #region parameters
+    parameters
     //cooldown ->coroutine?
     //_
-    #endregion
-    #region methods
+    
+    methods
     public bool Shoot()
     {
         return false;
     }
-    #endregion
+    
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-	#region Singleton
+	Singleton
 
 	public static Inventory instance;
 
@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour {
 		instance = this;
 	}
 
-	#endregion
+	
 
 	// Callback which is triggered when
 	// an item gets added/removed.

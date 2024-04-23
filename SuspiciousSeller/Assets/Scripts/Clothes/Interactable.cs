@@ -9,8 +9,6 @@ using UnityEngine;
 public class Interactable : MonoBehaviour {
 
     [SerializeField]
-    private bool _canEnterDoor; // or can interact
-    [SerializeField]
     protected bool canInteract;
     /*
     public float radius = 3f;				// How close do we need to be to interact?

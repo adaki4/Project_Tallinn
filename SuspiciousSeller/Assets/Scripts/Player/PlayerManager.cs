@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    #region references
     public GameObject player;
     public PlayerInput PlayerInput {get; set;}
     public PlayerMovement PlayerMovement {get; set;}
@@ -13,13 +12,11 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
 
     bool _active;
-    #endregion
+    
 
-    #region parameters
     protected int playerMoney;
-    #endregion
+    
 
-    #region methods
     public void PlayerPause()
     {
 
@@ -49,7 +46,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     public int GetMoney() { return playerMoney; }
-    #endregion
+    
     private void Awake()
     {
         if (instance != null)

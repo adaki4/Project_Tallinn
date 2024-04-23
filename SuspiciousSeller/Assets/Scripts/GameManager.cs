@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    #region references
+    references
     public static GameManager instance;
     public PlayerManager playerManager;
     public UIManager uiManager;
     public bool canMovePlayer = false;
-    #endregion
+    
 
-    #region methods
+    methods
     public void PausePlay()
     {
         Debug.Log("Game");
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         playerManager.AddMoney(q);
         uiManager.UpdateHUD(playerManager.GetMoney());
     }
-    #endregion
+    
 
     
     private void Awake()

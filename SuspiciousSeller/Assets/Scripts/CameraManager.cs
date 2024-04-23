@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    #region references
+    
     public static CameraManager instance;
-    #endregion
+    
 
-    #region variables
-    private Camera cam;
+    private Camera _cam;
     [SerializeField]
     public Vector2 minimalScreenPosition;
     [SerializeField]
     public Vector2 maximalScreenPosition;
     public float topScreenLimit;
-    #endregion
+    
     private void Awake()
     {
         if(instance == null)
@@ -28,9 +27,9 @@ public class CameraManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        cam = Camera.main;
-        minimalScreenPosition = new Vector2(cam.transform.position.x - cam.orthographicSize * Screen.width / Screen.height, - cam.orthographicSize);
-        maximalScreenPosition = new Vector2(- minimalScreenPosition.x, cam.orthographicSize);
+        _cam = Camera.main;
+        minimalScreenPosition = new Vector2(_cam.transform.position.x - _cam.orthographicSize * Screen.width / Screen.height, - _cam.orthographicSize);
+        maximalScreenPosition = new Vector2(- minimalScreenPosition.x, _cam.orthographicSize);
         topScreenLimit = maximalScreenPosition.y - (instance.maximalScreenPosition.y * 2 / 3) ;
 
     }
