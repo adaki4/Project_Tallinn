@@ -9,12 +9,12 @@ public class Door : Interactable
     private string _targetScene;
     
     [SerializeField]    
-    private Vector3 offset = Vector3.zero;
+    private Vector3 _offset = Vector3.zero;
     void Start() {
         canInteract = true;
         if (GameManager.instance.canMovePlayer && ScenesManager.instance.lastScene == _targetScene) {
             canInteract = false;
-            PlayerManager.instance.PlayerMovement.MoveInstantly(gameObject.transform.position + offset);
+            PlayerManager.instance.PlayerMovement.MoveInstantly(gameObject.transform.position + _offset);
         }
     }
     public override void Interact()

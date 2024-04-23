@@ -8,7 +8,7 @@ public class ScenesManager : MonoBehaviour
     static public ScenesManager instance;
 
     public string lastScene; 
-    #region methods
+    methods
     public void NewGame()
     {
         SceneManager.LoadScene("StoreScene");
@@ -18,7 +18,7 @@ public class ScenesManager : MonoBehaviour
         lastScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(name);
     }
-    #endregion
+    
     //static public ScenesManager Instance
     //{
     //    get

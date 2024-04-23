@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
     
     public Texture[] shopImages; //different aspects the shop can take (different images as a whole vs addons?)
 
-    private int level; 
+    private int _level; 
     
     // Start is called before the first frame update
     void Start()

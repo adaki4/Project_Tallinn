@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class NPCsDirectedMovement : MonoBehaviour {
 
-    #region references
+    references
     private Transform _target;
-    #endregion
+    
     private bool _moveToPlayer;
-    #region variables
+    variables
     [SerializeField]
     private float _movementSpeed = 2;
     [SerializeField]
     private float _rotationSpeed = 0.2f;
-    #endregion
+    
     void Awake() {
         _target = PlayerManager.instance.player.transform;
         _moveToPlayer = true;
