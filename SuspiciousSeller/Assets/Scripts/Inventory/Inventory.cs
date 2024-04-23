@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-	Singleton
-
 	public static Inventory instance;
 
 	void Awake ()
@@ -19,7 +17,6 @@ public class Inventory : MonoBehaviour {
 		instance = this;
 	}
 
-	
 
 	// Callback which is triggered when
 	// an item gets added/removed.

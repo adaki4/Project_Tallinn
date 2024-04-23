@@ -8,7 +8,6 @@ public class ScenesManager : MonoBehaviour
     static public ScenesManager instance;
 
     public string lastScene; 
-    methods
     public void NewGame()
     {
         SceneManager.LoadScene("StoreScene");
