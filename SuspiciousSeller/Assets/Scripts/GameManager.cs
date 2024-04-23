@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    references
     public static GameManager instance;
     public PlayerManager playerManager;
     public UIManager uiManager;
     public bool canMovePlayer = false;
     
 
-    methods
     public void PausePlay()
     {
         Debug.Log("Game");

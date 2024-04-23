@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class NPCsDirectedMovement : MonoBehaviour {
 
-    references
     private Transform _target;
     
     private bool _moveToPlayer;
-    variables
     [SerializeField]
     private float _movementSpeed = 2;
     [SerializeField]

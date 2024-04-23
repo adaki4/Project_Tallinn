@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    references
     [SerializeField]
     private GameObject _resumeButton;
     [SerializeField]
@@ -16,7 +15,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     
 
-    methods
+    
    
     public void PauseScene()
     {

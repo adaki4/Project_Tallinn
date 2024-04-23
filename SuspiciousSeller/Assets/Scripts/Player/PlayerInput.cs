@@ -6,13 +6,11 @@ using UnityEngine.EventSystems;
 
 public class PlayerInput : MonoBehaviour
 {
-    references
     PlayerMovement _movementComponent;
     PlayerAttack _attack;
     Camera _mainCamera;
     
 
-    methods
     
     void Start()
     {
