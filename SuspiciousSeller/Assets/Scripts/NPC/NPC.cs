@@ -4,4 +4,7 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour {
 
+    public void Die() {
+        Destroy(gameObject);
+    }
 }

@@ -11,7 +11,6 @@ public class PlayerInput : MonoBehaviour
     Camera _mainCamera;
     
 
-    
     void Start()
     {
         _movementComponent = GetComponent<PlayerMovement>();
@@ -49,7 +48,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //shoot
-            _attack.Shoot();
+            Debug.Log("attack initiated");
+            _attack.Attack();
+        }
+        if (Input.GetKeyDown(KeyCode.S)) {
+            _attack.SwitchAttackType();
         }
     }
 }
