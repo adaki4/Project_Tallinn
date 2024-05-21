@@ -52,6 +52,7 @@ public class PlayerInput : MonoBehaviour
             _attack.Attack();
         }
         if (Input.GetKeyDown(KeyCode.S)) {
+            Debug.Log("switch attatck type");
             _attack.SwitchAttackType();
         }
     }

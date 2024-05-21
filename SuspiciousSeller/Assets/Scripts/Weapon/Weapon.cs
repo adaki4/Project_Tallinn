@@ -11,6 +11,7 @@ public abstract class Weapon : MonoBehaviour {
     protected LayerMask attackableLayer;
     [SerializeField]
     protected int damage;
+    [Range(0.1f, 1f)]
     [SerializeField]
     protected float fireRate;
     [SerializeField]
