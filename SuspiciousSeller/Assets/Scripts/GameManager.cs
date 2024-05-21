@@ -9,17 +9,20 @@ public class GameManager : MonoBehaviour
     public PlayerManager playerManager;
     public UIManager uiManager;
     public bool canMovePlayer = false;
+
+    public List<NPC> npcList = new();
     
 
     public void PausePlay()
     {
-        Debug.Log("Game");
-        playerManager.PlayerPause();
-        //more things to pause/deactivate
+        Debug.Log("Game paused");
+        Time.timeScale = 0;
     }
     public void ResumePlay()
     {
-        playerManager.PlayerResume();
+        Debug.Log("GameResumed");
+        Time.timeScale = 1;
+
     }
 
     public void AddMoneyToPlayer(int q)
