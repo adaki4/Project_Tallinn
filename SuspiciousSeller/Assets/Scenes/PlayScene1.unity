@@ -132,12 +132,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 311799851}
-  - component: {fileID: 311799850}
   - component: {fileID: 311799849}
   - component: {fileID: 311799852}
   - component: {fileID: 311799853}
-  m_Layer: 0
-  m_Name: Enemy
+  - component: {fileID: 311799854}
+  m_Layer: 6
+  m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,18 +195,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &311799850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311799848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3605b38ddff5b74cb3e02edc472d695, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &311799851
 Transform:
   m_ObjectHideFlags: 0
@@ -232,7 +220,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.082654476, y: -0.22730023}
@@ -246,7 +234,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.801056, y: 3.7491102}
+  m_Size: {x: 2.76, y: 2.46}
   m_EdgeRadius: 0
 --- !u!114 &311799853
 MonoBehaviour:
@@ -261,6 +249,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 2
+--- !u!114 &311799854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311799848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0034c4f7a14f5b143bd5791a7c2f9c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &519420029
 AudioListener:
   m_ObjectHideFlags: 0
@@ -536,6 +536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7302678185ed448ad8b4ff54a0e763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canEnterDoor: 0
+  canInteract: 0
   _targetScene: StoreScene
-  offset: {x: 0, y: 0, z: 0}
+  _offset: {x: 0, y: 0, z: 0}

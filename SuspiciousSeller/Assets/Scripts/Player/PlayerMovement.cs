@@ -10,9 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Vector3 _target;
     private Camera _cam;
-    private float minEnemyDistance = 0.1f;
+    private float _minEnemyDistance = 0.1f;
     bool _isMoving;
-
+    
+    public bool isGoingRight;
     
 
     // Move to the point if clicked inside playable area
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         _isMoving = true;
         _target.x = Mathf.Clamp(point.x, CameraManager.instance.minimalScreenPosition.x, CameraManager.instance.maximalScreenPosition.x);
         _target.y = Mathf.Clamp(point.y, CameraManager.instance.minimalScreenPosition.y, CameraManager.instance.topScreenLimit);
-        
+        isGoingRight = _target.x > transform.position.x;
     }
 
     public void UpdateCamera()
@@ -57,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(transform.position);
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
             
-            if (Vector3.Distance(transform.position, _target) <= minEnemyDistance) { _isMoving = false; } //remember checking cases where player cant arrive at point (colision, not exact point etc)
+            if (Vector3.Distance(transform.position, _target) <= _minEnemyDistance) { _isMoving = false; } //remember checking cases where player cant arrive at point (colision, not exact point etc)
         }
     }
 }

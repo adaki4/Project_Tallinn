@@ -22,7 +22,7 @@ public class Door : Interactable
         ScenesManager.instance.LoadScene(_targetScene);
     }
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (canInteract) 
+        if (canInteract && collision.GetComponent<PlayerAttack>() != null) 
         {
             canInteract = false;
             Interact();
