@@ -9,4 +9,8 @@ public class NPC : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    private void Start() {
+        GameManager.instance.npcList.Add(this);
+    }
+
 }

@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField]
     private Transform playerTransform;
     [SerializeField]
     private Vector3 offset;
+    [Range(0f, 1f)]
+    [SerializeField]
+    private float smoothSpeed;
 
     private void LateUpdate() {
-        if (playerTransform != null) {
-        transform.position = playerTransform.position + offset;
+        if (PlayerManager.instance != null) {
+            playerTransform = PlayerManager.instance.player.transform;
+            Vector3 desiredPosition = playerTransform.position + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime); 
+            transform.position = smoothedPosition;
         }
     }
 }

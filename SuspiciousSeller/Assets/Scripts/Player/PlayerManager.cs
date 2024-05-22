@@ -15,19 +15,6 @@ public class PlayerManager : MonoBehaviour
     
 
     protected int playerMoney;
-    
-
-    public void PlayerPause()
-    {
-
-        PlayerInput.enabled = false;
-        PlayerMovement.enabled = false;
-    }
-    public void PlayerResume()
-    {
-        PlayerInput.enabled = true;
-        PlayerMovement.enabled = true;
-    }
 
     public void AddMoney(int q)
     {
