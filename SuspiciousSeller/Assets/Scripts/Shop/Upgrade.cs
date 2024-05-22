@@ -1,17 +1,13 @@
 using UnityEngine;
 using static UnityEditor.Progress;
-using UnityEngine.UI;
-/* The base item class. All items should derive from this. */
 
-public enum UpgradeState {Locked, Unlocked, Used};
+/* The base item class. All items should derive from this. */
 
 [CreateAssetMenu(fileName = "New Upgrade", menuName = "Shop/Upgrade")]
 public class Upgrade : ScriptableObject
 {
-    new public string name = "New Upgrade";
-    new public string description = "Description";
-    public UpgradeState state= UpgradeState.Locked;
-    public Image icon = null;              
+    new public string name = "New Upgrade";    
+    public Sprite icon = null;              
     public int value = 0; //buying value of the upgrade
     
     //upgrade points/level --> to change the level /complete the shop (tbd)
