@@ -35,11 +35,16 @@ public class PlayerManager : MonoBehaviour
         playerMoney += q;
     }
 
-    public void Substractoney(int q)
+    public bool SubstractMoney(int q, bool penalty=false) //bool penalty for actions where player loses money regardless
     {
+        if (q > playerMoney)
+        {
+            if (penalty) playerMoney = 0;
+            return false;
+        }
         playerMoney -= q;
+        return true;
     }
-
     public bool CanAfford(int q)
     {
         return playerMoney >= q;

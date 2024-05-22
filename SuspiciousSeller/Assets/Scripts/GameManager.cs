@@ -24,13 +24,25 @@ public class GameManager : MonoBehaviour
 
     public void AddMoneyToPlayer(int q)
     {
-        //update ui
         //add money
         playerManager.AddMoney(q);
+        //update ui
         uiManager.UpdateHUD(playerManager.GetMoney());
     }
     
+    public bool SpendMoneyPlayer(int q)
+    {
+        //substract money
+        bool spent = playerManager.SubstractMoney(q);
+        //update ui
+        uiManager.UpdateHUD(playerManager.GetMoney());
+        return spent;
+    }
 
+    public bool canAffordPlayer(int q)
+    {
+        return playerManager.CanAfford(q);
+    }
     
     private void Awake()
     {
