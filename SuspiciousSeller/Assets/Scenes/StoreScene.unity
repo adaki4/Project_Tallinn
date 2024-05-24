@@ -958,7 +958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfc9c5ff0141ff42bdbd99413023e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UpgradeStore: {fileID: 1521646591}
+  upgradeStore: {fileID: 1521646591}
+  storeVisual: {fileID: 579858557}
 --- !u!4 &579858559
 Transform:
   m_ObjectHideFlags: 0
@@ -2600,7 +2601,7 @@ GameObject:
   - component: {fileID: 1521646595}
   m_Layer: 5
   m_Name: UpgradesShop
-  m_TagString: Untagged
+  m_TagString: UpgradesShop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

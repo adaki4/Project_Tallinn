@@ -19,11 +19,17 @@ public class UpgradeSlot : MonoBehaviour
     void Start()
     {
         ShopManager.instance.OnUpgradeShopOpen += CheckLocked;
+        ShopManager.instance.OnMoneyChanged += CheckLocked; 
 
         nameText.SetText( upgrade.name);
         descriptionText.SetText(upgrade.description);
         priceText.SetText((upgrade.value).ToString());
         icon =upgrade.icon;
+    }
+
+    private void Instance_OnMoneyChanged()
+    {
+        throw new System.NotImplementedException();
     }
 
     public void OnClickUpgrade()
@@ -39,10 +45,21 @@ public class UpgradeSlot : MonoBehaviour
     public void CheckLocked()
     {
         //change to paremters in event? like this is not the best
-        if(upgrade.state == UpgradeState.Locked && GameManager.instance.canAffordPlayer(upgrade.value))
+        if (GameManager.instance.canAffordPlayer(upgrade.value))
         {
-            overlay.enabled = false;
-            upgrade.state = UpgradeState.Unlocked;
+            if (upgrade.state == UpgradeState.Locked)
+            {
+                overlay.enabled = false;
+                upgrade.state = UpgradeState.Unlocked;
+            }
+        }
+        else
+        {
+            if (upgrade.state == UpgradeState.Unlocked)
+            {
+                overlay.enabled = true;
+                upgrade.state = UpgradeState.Locked;
+            }
         }
     }
 
