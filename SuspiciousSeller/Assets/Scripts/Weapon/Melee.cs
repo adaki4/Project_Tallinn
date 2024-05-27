@@ -13,7 +13,7 @@ public class Melee : Weapon {
             NPC npc = hits[i].collider.gameObject.GetComponent<NPC>();
 
             if (npc != null) {
-                npc.Die();
+                npc.OnHit();
             }
         }
     }

@@ -10,8 +10,11 @@ public class CameraManager : MonoBehaviour
 
     private Camera _cam;
     [SerializeField]
-    public Vector2 minimalScreenPosition;
+    public Vector2 minimalOffset;
     [SerializeField]
+    public Vector2 maximalOffset;
+
+    public Vector2 minimalScreenPosition;
     public Vector2 maximalScreenPosition;
     public float topScreenLimit;
     

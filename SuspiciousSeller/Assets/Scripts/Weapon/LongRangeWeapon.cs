@@ -11,7 +11,10 @@ public class LongRangeWeapon : Weapon
  
     public override void Attack()
     {
-        Instantiate(bulletPrefab, relativeAttackTransformPosition, relativeAttackRotation);
+        if (Time.time > lastAttackedAt + fireRate) {
+            Instantiate(bulletPrefab, relativeAttackTransformPosition, relativeAttackRotation);
+        lastAttackedAt = Time.time;
+        }
     }
     void Start() {
         attackRange = 20f;

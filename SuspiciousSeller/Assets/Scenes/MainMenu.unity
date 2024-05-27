@@ -467,6 +467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491cbebefe6755a46a3487a52ecce588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimalOffset: {x: -3.35, y: 0}
+  maximalOffset: {x: 8.07, y: 0}
   minimalScreenPosition: {x: 0, y: 0}
   maximalScreenPosition: {x: 0, y: 0}
   topScreenLimit: 0
@@ -482,8 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df88f6d97865bf84eaeb29248d35ac51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: -2}
-  smoothSpeed: 0.611
+  offset: {x: 0, y: 2, z: -2}
+  smoothSpeed: 0.579
 --- !u!1 &1552125757
 GameObject:
   m_ObjectHideFlags: 0
