@@ -11,6 +11,8 @@ public class ScenesManager : MonoBehaviour
 
     public string lastScene;
 
+    public string currentScene;
+
     public event Action OnChangeScene;
     public void NewGame()
     {
@@ -20,10 +22,16 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene("Introduction");
     }
+
+    public string GetCurrentSceneName() //unity get active scene.name was not working for some reason
+    {
+        return currentScene;
+    }
     public void LoadScene(string name)
     {
         OnChangeScene?.Invoke();
         lastScene = SceneManager.GetActiveScene().name;
+        currentScene = name;
         SceneManager.LoadScene(name);
     }
     

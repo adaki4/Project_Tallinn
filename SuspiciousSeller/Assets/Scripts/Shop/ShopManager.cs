@@ -1,3 +1,4 @@
+using Ink.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,17 +8,24 @@ using UnityEngine.SceneManagement;
 
 public class ShopManager : MonoBehaviour
 {
-    public GameObject upgradeStore;
+    public GameObject upgradeStore; //reference to gameobject shop
+    public GameObject storeVisual; //visual of the shop (maybe w the addons it is not needed)
 
-    //different aspects the shop can take (different images as a whole vs addons?)
+    //different aspects the shop can take (addons)
     Dictionary<string, GameObject> shopImages = new Dictionary<string, GameObject>();
-    private int _level; 
+
+    //number of upgrades as a condition to winning, an inizialised array would be needed if the condition was to complete all of them or specific ones
+    private int currentUpgradesN;
+    public int winUpgradesN=3; //how many upgrades do we need to win
 
     public static ShopManager instance;
-    public GameObject storeVisual;
 
     public event Action OnUpgradeShopOpen;
+    public event Action OnUpgradeShopClose;
     public event Action OnMoneyChanged;
+
+    private bool shopOpen;
+
     void Awake()
     {
         if (instance != null)
@@ -30,12 +38,29 @@ public class ShopManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
     }
+    public bool Sell(Item item)
+    {
+        if (!shopOpen) { return false; }
+
+        GameManager.instance.AddMoneyToPlayer(item.value);
+        OnMoneyChanged?.Invoke();
+        //more things? idk make it more interesting
+        return true;
+    }
     public bool Buy(Upgrade upgrade)
     {   
         if(GameManager.instance.SpendMoneyPlayer(upgrade.value))
         {
+            //activate image of upgrade and check if some are now locked
             //shopImages[upgrade.name].SetActive(true);
             OnMoneyChanged?.Invoke();
+
+            //win condition
+            currentUpgradesN++;
+            if(AreUpgradesCompleted())
+            {
+                GameManager.instance.EndGame();
+            }
             return true;
         }
         return false;
@@ -43,18 +68,27 @@ public class ShopManager : MonoBehaviour
 
     public void ShowUpgradeShop(bool c)
     {
-        Debug.Log("abreindo tienda");
-        OnUpgradeShopOpen?.Invoke();
+        if (c) OnUpgradeShopOpen?.Invoke(); 
+        else
+        { 
+            OnUpgradeShopClose?.Invoke();
+        }
         upgradeStore.SetActive(c);
+        shopOpen = c;
     }
 
     public void OnChangeScene()
     {
-        ShowStoreBuilding(SceneManager.GetActiveScene().name == "StoreScene");
+        ShowStoreBuilding(ScenesManager.instance.GetCurrentSceneName() == "StoreScene");
     }
     public void ShowStoreBuilding(bool c)
     {
         storeVisual.SetActive(c);
+        Debug.Log("Allo");
+    }
+    public bool AreUpgradesCompleted()
+    {
+        return currentUpgradesN >= winUpgradesN;
     }
 
     // Start is called before the first frame update
@@ -67,6 +101,9 @@ public class ShopManager : MonoBehaviour
         upgradeStore.SetActive(false);
 
         ScenesManager.instance.OnChangeScene += OnChangeScene;
+
+        currentUpgradesN = 0;
+        shopOpen = false;
     }
 
     // Update is called once per frame

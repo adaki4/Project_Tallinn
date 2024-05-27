@@ -46,6 +46,13 @@ public class GameManager : MonoBehaviour
     {
         return playerManager.CanAfford(q);
     }
+
+    public void EndGame()
+    {
+        //show text with winning condition, show shop with all the upgrades
+        //maybe ending dialogue
+        Debug.Log("You won :p ");
+    }
     
     private void Awake()
     {
