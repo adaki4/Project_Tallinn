@@ -17,8 +17,11 @@ public class NPCsDirectedMovement : MonoBehaviour {
         _target = PlayerManager.instance.player.transform;
         _moveToPlayer = true;
     }
-    void OnTriggerEnter2D() {
-        _moveToPlayer = false;
+    private void OnTriggerEnter2D(Collider2D other) {
+        var player = other.GetComponent<PlayerManager>();
+        if (player != null) {
+            _moveToPlayer = false;
+        }
     }
     void OnTriggerExit2D() {
         _moveToPlayer = true;

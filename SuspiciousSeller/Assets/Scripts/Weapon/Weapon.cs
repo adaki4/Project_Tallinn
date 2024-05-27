@@ -14,6 +14,7 @@ public abstract class Weapon : MonoBehaviour {
     [Range(0.1f, 1f)]
     [SerializeField]
     protected float fireRate;
+    protected float lastAttackedAt = 0;
     [SerializeField]
     protected float attackRange;
 

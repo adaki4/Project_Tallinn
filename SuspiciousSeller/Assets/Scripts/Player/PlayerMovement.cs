@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         // }
         // version 2 -> clamp
         _isMoving = true;
-        _target.x = Mathf.Clamp(point.x, CameraManager.instance.minimalScreenPosition.x, CameraManager.instance.maximalScreenPosition.x);
+        _target.x = Mathf.Clamp(point.x, CameraManager.instance.minimalScreenPosition.x + CameraManager.instance.minimalOffset.x, CameraManager.instance.maximalScreenPosition.x + CameraManager.instance.maximalOffset.x);
         _target.y = Mathf.Clamp(point.y, CameraManager.instance.minimalScreenPosition.y, CameraManager.instance.topScreenLimit);
         isGoingRight = _target.x > transform.position.x;
     }

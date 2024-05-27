@@ -23,10 +23,10 @@ public class BulletComponent : MonoBehaviour
         rd.velocity = transform.up * speed;
     }
     private void OnTriggerEnter2D(Collider2D other) {
-        NPC npc = other.gameObject.GetComponent<NPC>();
+        NPC npc = other.gameObject.GetComponentInParent<NPC>();
         if (npc != null) {
             Destroy(gameObject);
-            npc.Die();
+            npc.OnHit();
         }
     }
 }
