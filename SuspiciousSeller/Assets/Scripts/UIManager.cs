@@ -32,7 +32,8 @@ public class UIManager : MonoBehaviour
     }
     public void NewGame()
     {
-        ScenesManager.instance.NewGame();
+        //ScenesManager.instance.NewGame();
+        ScenesManager.instance.LoadIntro();
     } 
     
     //update info about player (money, time etc) maybe adding money should work better with events? 

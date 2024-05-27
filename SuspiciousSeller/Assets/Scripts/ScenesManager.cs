@@ -16,6 +16,10 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene("StoreScene");
     }
+    public void LoadIntro()
+    {
+        SceneManager.LoadScene("Introduction");
+    }
     public void LoadScene(string name)
     {
         OnChangeScene?.Invoke();

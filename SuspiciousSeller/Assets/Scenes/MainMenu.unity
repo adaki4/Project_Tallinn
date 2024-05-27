@@ -276,7 +276,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 570589147}
         m_TargetAssemblyTypeName: ScenesManager, Assembly-CSharp
-        m_MethodName: NewGame
+        m_MethodName: LoadIntro
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
