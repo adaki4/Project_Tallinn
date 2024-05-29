@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72200878}
   m_LocalRotation: {x: 0.011056594, y: -0.5350972, z: 0.0129615255, w: 0.84461874}
-  m_LocalPosition: {x: -15.23, y: -5.2, z: 1.08}
+  m_LocalPosition: {x: -15.23, y: -4.8, z: 1.08}
   m_LocalScale: {x: 0.057348598, y: 0.057348598, z: 0.057348598}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 3757921150872242868, guid: 504f41fd8eb70f9459ff07d21e1f5dd3, type: 3}
-  minimumSpawnTime: 10
+  minimumSpawnTime: 7.94
   maximumSpawnTime: 12
 --- !u!4 &90639897
 Transform:
@@ -1172,7 +1172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853089200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.89, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1.24, y: 1.81, z: 1.24}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2371,6 +2371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804676757}
   - component: {fileID: 1804676756}
+  - component: {fileID: 1804676758}
   m_Layer: 0
   m_Name: EmenySpawner
   m_TagString: Untagged
@@ -2391,8 +2392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5031196712866564804, guid: 780e115d20d68a543803135e1b2a4e82, type: 3}
-  minimumSpawnTime: 10
-  maximumSpawnTime: 12
+  minimumSpawnTime: 6.5
+  maximumSpawnTime: 9.95
 --- !u!4 &1804676757
 Transform:
   m_ObjectHideFlags: 0
@@ -2408,6 +2409,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1804676758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804676755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f8228399374d84ca8d6bd5de8e8da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 5031196712866564804, guid: 4cc7955d3dcec13449135bb281467858, type: 3}
+  minimumSpawnTime: 8
+  maximumSpawnTime: 10
 --- !u!1 &1907402330
 GameObject:
   m_ObjectHideFlags: 0

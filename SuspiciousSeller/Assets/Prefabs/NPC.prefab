@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clothesList:
   - {fileID: 1139886179017988852, guid: 08151ab0a31dd5a4a80a3c3f8734d825, type: 3}
+  - {fileID: 1139886179017988852, guid: 08151ab0a31dd5a4a80a3c3f8734d825, type: 3}
   health: 1
   spriteArray:
   - {fileID: 21300000, guid: bc320f3700a57fa4f9b3531bbedb7849, type: 3}
