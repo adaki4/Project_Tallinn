@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e71900c37e94a8847b5ac180c6f593ad
+=======
+guid: fb19aa76071cfdf4d80296d487e85bbb
+>>>>>>> c6dd283 (fix ink text style, add credits)
 DefaultImporter:
   externalObjects: {}
   userData: 
