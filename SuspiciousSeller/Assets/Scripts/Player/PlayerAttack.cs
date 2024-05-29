@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -7,27 +8,38 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     //cooldown ->coroutine?
     //_
-    private LongRangeWeapon _longRangeWeapon;
-    private Melee _meleeWeapon;
+    private LongRangeWeapon longRangeWeapon;
+    private Melee meleeWeapon;
+    private SpriteRenderer weaponSpriteRenderer;
     [SerializeField]
-    private bool _isCurrentlyMelee;
-    
+    private bool isCurrentlyMelee;
+
     public bool Attack()
     {
-        if (_isCurrentlyMelee) {
-            _meleeWeapon.Attack();
+        if (isCurrentlyMelee) {
+            meleeWeapon.Attack();
         }
         else {
-            _longRangeWeapon.Attack();
+            longRangeWeapon.Attack();
         }
         return false;
     }
     public void SwitchAttackType(){
-        _isCurrentlyMelee = !_isCurrentlyMelee;
+        isCurrentlyMelee = !isCurrentlyMelee;
+        if (isCurrentlyMelee) {
+            longRangeWeapon.attackAnimation.Stop();
+            weaponSpriteRenderer.sprite = meleeWeapon.sprite;
+        }
+        else {
+            longRangeWeapon.attackAnimation.transform.rotation = Quaternion.identity;
+            meleeWeapon.attackAnimation.Stop();
+            weaponSpriteRenderer.sprite = longRangeWeapon.sprite;
+        }
     }
     void Start() {
-        _meleeWeapon = GetComponent<Melee>();
-        _longRangeWeapon = GetComponent<LongRangeWeapon>();
+        meleeWeapon = GetComponent<Melee>();
+        longRangeWeapon = GetComponent<LongRangeWeapon>();
+        weaponSpriteRenderer = GetComponentsInChildren<SpriteRenderer>()[1];
     }
-    
+
 }
