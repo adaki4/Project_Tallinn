@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayScene2.unity
     guid: 816774d6e1c47bd46924cc00ab54e344
   - enabled: 1
-    path: Assets/Scenes/StoreScene.unity
+    path: Assets/Scenes/StoreSceneBackup.unity
     guid: deb2a0b309968f94fa5a31ffffdfdfcd
   - enabled: 1
     path: Assets/Scenes/Introduction.unity
