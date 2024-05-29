@@ -1,24 +1,47 @@
 ﻿using System;
 using Ink.Runtime;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
-public class BasicInkExample : MonoBehaviour {
+public class ModifiedInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
-	
+	public static ModifiedInkExample instance;
     void Awake () {
 		// Remove the default message
 		RemoveChildren();
-		//StartStory();
-	}
+
+		//only start story if its a story scene like the introduction or ending
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+		if (inkJSONAsset != null) StartStory();
+    }
 
 	// Creates a new Story object with the compiled story which we can then play!
-	void StartStory () {
+	public void StartStory (TextAsset inkFile=null) {
+		if (inkFile != null)
+		{
+			Debug.Log(inkFile.text);
+			//Assign story 
+			inkJSONAsset=inkFile;
+			//variables
+		}
 		story = new Story (inkJSONAsset.text);
-        if(OnCreateStory != null) OnCreateStory(story);
+
+        // If NPC has story variables, update the story with them before progressing with it
+        
+
+        if (OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
-	}
+
+        if(GameManager.instance!=null) GameManager.instance.FreezePlayer(true);
+    }
 	
 	// This is the main function called every time the story changes. It does a few things:
 	// Destroys all the old content and choices.
@@ -50,14 +73,40 @@ public class BasicInkExample : MonoBehaviour {
 		}
 		// If we've read all the content and there's no choices, the story is finished!
 		else {
-			Button choice = CreateChoiceView("Start the criminal life");
-			choice.onClick.AddListener(delegate{
-				//StartStory();
-				ScenesManager.instance.NewGame();
-			});
+			EndStory();
 		}
 	}
 
+	void EndStory()
+	{
+        string currentScene = ScenesManager.instance.GetCurrentSceneName();
+		Debug.Log(currentScene);
+        string endingButtonMessage = " ";
+        switch (currentScene)
+        {
+            case "StoreScene":
+				{
+					endingButtonMessage = "End Conversation"; break;
+				}
+            case "Introduction":
+				{
+					endingButtonMessage = "Start Criminal Life"; break;
+				}
+            case "Ending":
+				{
+					endingButtonMessage = "Go to jail?"; break;
+				}
+        }
+        Button choice = CreateChoiceView(endingButtonMessage);
+        choice.onClick.AddListener(delegate {
+            //StartStory();
+
+            if(GameManager.instance!=null) GameManager.instance.FreezePlayer(false);
+            if (currentScene == "Introduction") { ScenesManager.instance.NewGame(); }
+			else if (currentScene == "Ending") {/*finish game, restart?*/}
+
+        });
+    }
 	// When we click the choice button, tell the story to choose that choice!
 	void OnClickChoiceButton (Choice choice) {
 		story.ChooseChoiceIndex (choice.index);
@@ -95,8 +144,7 @@ public class BasicInkExample : MonoBehaviour {
 			Destroy (canvas.transform.GetChild (i).gameObject);
 		}
 	}
-
-	[SerializeField]
+    [SerializeField]
 	private TextAsset inkJSONAsset = null;
 	public Story story;
 

@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void FreezePlayer(bool c)
+    {
+        playerManager.Freeze(c);
+    }
+
     public void AddMoneyToPlayer(int q)
     {
         //add money

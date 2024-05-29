@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastScene: 
+  currentScene: Introduction
 --- !u!4 &570589148
 Transform:
   m_ObjectHideFlags: 0
