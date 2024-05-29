@@ -104,6 +104,7 @@ public class ModifiedInkExample : MonoBehaviour {
             if(GameManager.instance!=null) GameManager.instance.FreezePlayer(false);
             if (currentScene == "Introduction") { ScenesManager.instance.NewGame(); }
 			else if (currentScene == "Ending") {/*finish game, restart?*/}
+			RemoveChildren();
 
         });
     }
