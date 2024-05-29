@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b742da0681720414a818e92b3ab05e49, type: 3}
-  m_Name: GreenShirt
+  m_Name: Shoes
   m_EditorClassIdentifier: 
-  name: Green Shirt
-  icon: {fileID: 21300000, guid: 4348ed6ccccb68c478725358bd8d8b75, type: 3}
+  name: Shoes
+  icon: {fileID: 21300000, guid: 2cd75a54a0e4ff447905c2d05b9dc0dc, type: 3}
   value: 5
