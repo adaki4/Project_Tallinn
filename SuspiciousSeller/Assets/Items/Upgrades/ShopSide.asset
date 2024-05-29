@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e90122bfb05314342bbb22db23ff8e5b, type: 3}
-  m_Name: ShopWhatever
+  m_Name: ShopSide
   m_EditorClassIdentifier: 
-  name: New Upgrade
-  description: Description
+  name: Side of shop
+  description: Decorate the surroundings!
+  imageObjId: 3
   state: 0
   icon: {fileID: 0}
-  value: 0
+  value: 15

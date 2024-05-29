@@ -12,7 +12,9 @@ public class ShopManager : MonoBehaviour
     public GameObject storeVisual; //visual of the shop (maybe w the addons it is not needed)
 
     //different aspects the shop can take (addons)
-    Dictionary<string, GameObject> shopImages = new Dictionary<string, GameObject>();
+    protected List <int> boughtUpgrades;
+    public  GameObject[] oldElements;
+    public GameObject[] newElements;
 
     //number of upgrades as a condition to winning, an inizialised array would be needed if the condition was to complete all of them or specific ones
     private int currentUpgradesN;
@@ -31,6 +33,7 @@ public class ShopManager : MonoBehaviour
         if (instance != null)
         {
             Debug.LogWarning("More than one instance of Shop Manager found!");
+            Destroy(gameObject);
             return;
         }
 
@@ -53,6 +56,11 @@ public class ShopManager : MonoBehaviour
         {
             //activate image of upgrade and check if some are now locked
             //shopImages[upgrade.name].SetActive(true);
+
+            oldElements[upgrade.imageObjId].SetActive(false);
+            newElements[upgrade.imageObjId].SetActive(true);
+            boughtUpgrades.Add(upgrade.imageObjId);
+
             OnMoneyChanged?.Invoke();
 
             //win condition
@@ -79,11 +87,15 @@ public class ShopManager : MonoBehaviour
 
     public void OnChangeScene()
     {
-        ShowStoreBuilding(ScenesManager.instance.GetCurrentSceneName() == "StoreScene");
+        ShowStoreBuilding(ScenesManager.instance.GetCurrentSceneName() != "StoreScene"); //the event happens before names update
     }
     public void ShowStoreBuilding(bool c)
     {
         storeVisual.SetActive(c);
+        for(int i = 0; i < boughtUpgrades.Count; i++)
+        {
+            ShowUpgradeVisual(i);
+        }
         Debug.Log("Allo");
     }
     public bool AreUpgradesCompleted()
@@ -91,6 +103,11 @@ public class ShopManager : MonoBehaviour
         return currentUpgradesN >= winUpgradesN;
     }
 
+    protected void ShowUpgradeVisual(int id)
+    {
+        oldElements[id].SetActive(false);
+        newElements[id].SetActive(true);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +119,7 @@ public class ShopManager : MonoBehaviour
 
         ScenesManager.instance.OnChangeScene += OnChangeScene;
 
+        boughtUpgrades= new List<int> {};
         currentUpgradesN = 0;
         shopOpen = false;
     }

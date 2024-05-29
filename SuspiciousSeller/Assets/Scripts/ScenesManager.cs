@@ -25,7 +25,7 @@ public class ScenesManager : MonoBehaviour
 
     public string GetCurrentSceneName() //unity get active scene.name was not working for some reason
     {
-        return currentScene;
+        return SceneManager.GetActiveScene().name;
     }
     public void LoadScene(string name)
     {
@@ -35,19 +35,15 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(name);
     }
     
-    //static public ScenesManager Instance
-    //{
-    //    get
-    //    {
-    //        return _instance;
-    //    }
-    //}
+    
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        
+         if (instance != null)
+         {
+            Destroy(this);
+            return;
+         }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 }
