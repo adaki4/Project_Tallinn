@@ -13,8 +13,9 @@ public class InventoryUI : MonoBehaviour {
 
 	void Start () {
 		inventory = Inventory.instance;
-		inventory.onItemChangedCallback += UpdateUI;	// Subscribe to the onItemChanged callback
-
+		inventory.onItemChangedCallback += UpdateUI;    // Subscribe to the onItemChanged callback
+		ShopManager.instance.OnUpgradeShopOpen+= OpenUI;
+		ShopManager.instance.OnUpgradeShopClose +=CloseUI;
 		// Populate our slots array
 		slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 	}
@@ -23,7 +24,6 @@ public class InventoryUI : MonoBehaviour {
 		// Check to see if we should open/close the inventory
 		if (Input.GetKeyDown(KeyCode.I))
 		{
-			Debug.Log("Open inventory");
 			inventoryUI.SetActive(!inventoryUI.activeSelf);
 		}
 	}
@@ -47,4 +47,15 @@ public class InventoryUI : MonoBehaviour {
 			}
 		}
 	}
+
+	void OpenUI()
+	{
+		inventoryUI.SetActive(true);
+    }
+
+	void CloseUI()
+	{
+		inventoryUI.SetActive(false);
+	}
+   
 }

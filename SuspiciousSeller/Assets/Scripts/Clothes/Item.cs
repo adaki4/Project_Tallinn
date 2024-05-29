@@ -11,12 +11,9 @@ public class Item : ScriptableObject {
 	public int value = 0; //selling value of the cloth
 
 	// Called when the item is pressed in the inventory
-	public virtual void Use ()
+	public virtual bool Use ()
 	{
-		//sell the cloth (temporal-> player needs to be in the merchant mode)
-        GameManager.instance.AddMoneyToPlayer(value);
-
-        Debug.Log("Using " + name);
+		return ShopManager.instance.Sell(this);
 	}
 
 	public void RemoveFromInventory ()

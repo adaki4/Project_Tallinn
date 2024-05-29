@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void FreezePlayer(bool c)
+    {
+        playerManager.Freeze(c);
+    }
+
     public void AddMoneyToPlayer(int q)
     {
         //add money
@@ -45,6 +50,13 @@ public class GameManager : MonoBehaviour
     public bool canAffordPlayer(int q)
     {
         return playerManager.CanAfford(q);
+    }
+
+    public void EndGame()
+    {
+        //show text with winning condition, show shop with all the upgrades
+        //maybe ending dialogue
+        Debug.Log("You won :p ");
     }
     
     private void Awake()

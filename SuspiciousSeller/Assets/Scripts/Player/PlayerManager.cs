@@ -37,6 +37,10 @@ public class PlayerManager : MonoBehaviour
         return playerMoney >= q;
     }
 
+    public void Freeze(bool c)
+    {
+        PlayerInput.enabled = !c;
+    }
     public int GetMoney() { return playerMoney; }
     
     private void Awake()

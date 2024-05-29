@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (_isMoving) { 
-            Debug.Log(transform.position);
+            //Debug.Log(transform.position);
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
             
             if (Vector3.Distance(transform.position, _target) <= _minEnemyDistance) { _isMoving = false; }
