@@ -78,7 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff53bdb2006b3e43b28ec640b28c23e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clothesList: []
+  clothesList:
+  - {fileID: 1139886179017988852, guid: 6d15cff5b6f60bc48ad169512a4ef5f2, type: 3}
   health: 2
   damageInCoins: 5
   movementSpeed: 1

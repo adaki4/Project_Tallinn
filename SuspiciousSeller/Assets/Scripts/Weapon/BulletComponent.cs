@@ -12,6 +12,8 @@ public class BulletComponent : MonoBehaviour
     private float lifeTime = 3f;
     [SerializeField]
     private bool canHitPlayer;
+    [SerializeField]
+    private int damageToPlayerInCoins;
     private Rigidbody2D rd;
     void Start()
     {
@@ -32,7 +34,7 @@ public class BulletComponent : MonoBehaviour
         }
         else if (player != null && canHitPlayer) {
             Destroy(gameObject);
-            player.SubstractMoney(5);
+            player.SubstractMoney(damageToPlayerInCoins);
         }
     }
 }
