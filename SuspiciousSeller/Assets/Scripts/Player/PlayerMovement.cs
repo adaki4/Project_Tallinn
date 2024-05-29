@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     bool _isMoving;
     
     public bool isGoingRight;
+
+    private Vector3 scale;
     
 
     // Move to the point if clicked inside playable area
@@ -48,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        scale = transform.localScale;
         _cam = Camera.main;
         _isMoving = false;
     }
@@ -58,7 +61,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(transform.position);
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
             
-            if (Vector3.Distance(transform.position, _target) <= _minEnemyDistance) { _isMoving = false; } //remember checking cases where player cant arrive at point (colision, not exact point etc)
+            if (Vector3.Distance(transform.position, _target) <= _minEnemyDistance) { _isMoving = false; }
+            if (isGoingRight) {
+                transform.localScale = new Vector3(scale.x, scale.y);
+            }
+            else {
+                transform.localScale = new Vector3(-scale.x, scale.y);
+            } //remember checking cases where player cant arrive at point (colision, not exact point etc)
         }
     }
 }

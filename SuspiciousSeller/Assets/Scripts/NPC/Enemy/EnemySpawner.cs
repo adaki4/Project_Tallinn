@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private float maximumSpawnTime;
     private float timeUntilSpawn;
     private Vector3 spawnPosition;
-    void Awake()
+    void Start()
     {
         SetTimeUntilSpawn();
         SetSpawnPosition();

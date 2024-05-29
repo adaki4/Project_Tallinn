@@ -10,7 +10,8 @@ public class BulletComponent : MonoBehaviour
     [Range(1, 10)]
     [SerializeField]
     private float lifeTime = 3f;
-
+    [SerializeField]
+    private bool canHitPlayer;
     private Rigidbody2D rd;
     void Start()
     {
@@ -24,9 +25,14 @@ public class BulletComponent : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) {
         NPC npc = other.gameObject.GetComponentInParent<NPC>();
+        PlayerManager player = other.gameObject.GetComponentInParent<PlayerManager>();
         if (npc != null) {
             Destroy(gameObject);
             npc.OnHit();
+        }
+        else if (player != null && canHitPlayer) {
+            Destroy(gameObject);
+            player.SubstractMoney(5);
         }
     }
 }

@@ -3,11 +3,9 @@ using UnityEngine;
 public class Melee : Weapon {
     
     RaycastHit2D[] hits;
-    Vector3 relativeAttackTransformPosition;
-
     public override void Attack() {
 
-        hits = Physics2D.CircleCastAll(relativeAttackTransformPosition, attackRange, transform.right, 0, attackableLayer);
+        hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, transform.right, 0, attackableLayer);
         for (int i = 0; i < hits.Length; i++)
         {
             NPC npc = hits[i].collider.gameObject.GetComponent<NPC>();
@@ -19,14 +17,7 @@ public class Melee : Weapon {
     }
     
     private void OnDrawGizmosSelected() {
-        Gizmos.DrawWireSphere(relativeAttackTransformPosition, attackRange);
+        Gizmos.DrawWireSphere(attackTransform.position, attackRange);
     }
 
-    void Start() {
-    }
-
-    void Update() {
-        relativeAttackTransformPosition = attackTransform.position;
-        if (!PlayerManager.instance.PlayerMovement.isGoingRight) {relativeAttackTransformPosition.x -= attackTransform.localPosition.x;}
-    }
 }
