@@ -984,8 +984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f8228399374d84ca8d6bd5de8e8da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5031196712866564804, guid: 6f541001c3913e54b81b44e4e40a9697, type: 3}
-  minimumSpawnTime: 10
+  enemyPrefab: {fileID: 5031196712866564804, guid: 4cc7955d3dcec13449135bb281467858, type: 3}
+  minimumSpawnTime: 6
   maximumSpawnTime: 12
 --- !u!4 &745412899
 Transform:
@@ -2762,7 +2762,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.55, y: 3.53}
+  m_Size: {x: 19.48, y: 6.77}
   m_EdgeRadius: 0
 --- !u!114 &8730054413513282364
 MonoBehaviour:

@@ -1,18 +1,16 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 public class LongRangeWeapon : Weapon
 {
-    [SerializeField] 
-    private GameObject bulletPrefab;
-    private Vector3 relativeAttackTransformPosition;
-    private Quaternion relativeAttackRotation;
 
+    [SerializeField] 
+    private GameObject bulletPrefab; 
+    private Quaternion relativeAttackRotation;
  
     public override void Attack()
     {
         if (Time.time > lastAttackedAt + fireRate) {
-            Instantiate(bulletPrefab, relativeAttackTransformPosition, relativeAttackRotation);
+            Instantiate(bulletPrefab, attackTransform.position, relativeAttackRotation);
         lastAttackedAt = Time.time;
         }
     }
@@ -21,11 +19,9 @@ public class LongRangeWeapon : Weapon
         fireRate = 0.5f;
     }
     void Update() {
-        relativeAttackTransformPosition = attackTransform.position;
-        relativeAttackRotation = attackTransform.rotation;
+        relativeAttackRotation = attackTransform.localRotation;
         if (!PlayerManager.instance.PlayerMovement.isGoingRight) {
-            relativeAttackTransformPosition.x -= attackTransform.localPosition.x;
             relativeAttackRotation.z = -relativeAttackRotation.z;
-            }
+        }
     }
 }
