@@ -9,8 +9,23 @@ using UnityEngine.UI;
 public class ModifiedInkExample : MonoBehaviour {
     public static event Action<Story> OnCreateStory;
 	public static ModifiedInkExample instance;
+	[SerializeField]
+	private  Image image;
+	[SerializeField]
+	private TextAsset inkJSONAsset = null;
+	public Story story;
+
+	[SerializeField]
+	public Canvas canvas = null;
+
+	// UI Prefabs
+	[SerializeField]
+	private Text textPrefab = null;
+	[SerializeField]
+	private Button buttonPrefab = null;
     void Awake () {
 		// Remove the default message
+		image = canvas.gameObject.GetComponentInChildren<Image>();
 		RemoveChildren();
 
 		//only start story if its a story scene like the introduction or ending
@@ -117,14 +132,14 @@ public class ModifiedInkExample : MonoBehaviour {
 	void CreateContentView (string text) {
 		Text storyText = Instantiate (textPrefab) as Text;
 		storyText.text = text;
-		storyText.transform.SetParent (canvas.transform, false);
+		storyText.transform.SetParent (image.gameObject.transform, false);
 	}
 
 	// Creates a button showing the choice text
 	Button CreateChoiceView (string text) {
 		// Creates the button from a prefab
 		Button choice = Instantiate (buttonPrefab) as Button;
-		choice.transform.SetParent (canvas.transform, false);
+		choice.transform.SetParent (image.gameObject.transform, false);
 		
 		// Gets the text from the button prefab
 		Text choiceText = choice.GetComponentInChildren<Text> ();
@@ -139,21 +154,11 @@ public class ModifiedInkExample : MonoBehaviour {
 
 	// Destroys all the children of this gameobject (all the UI)
 	void RemoveChildren () {
-		int childCount = canvas.transform.childCount;
+		int childCount = image.gameObject.transform.childCount;
 		for (int i = childCount - 1; i >= 0; --i) {
-			Destroy (canvas.transform.GetChild (i).gameObject);
+			if (!image.gameObject.transform.GetChild(i).gameObject.CompareTag("DontKillChild")) {
+				Destroy (image.gameObject.transform.GetChild (i).gameObject);
+			}
 		}
 	}
-    [SerializeField]
-	private TextAsset inkJSONAsset = null;
-	public Story story;
-
-	[SerializeField]
-	private Canvas canvas = null;
-
-	// UI Prefabs
-	[SerializeField]
-	private Text textPrefab = null;
-	[SerializeField]
-	private Button buttonPrefab = null;
 }
