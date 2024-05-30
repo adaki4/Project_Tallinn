@@ -11,10 +11,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerMovement PlayerMovement {get; set;}
 
     public static PlayerManager instance;
-    public bool hasVisitedMerchant;
-
-    bool _active;
-    
+    public bool hasVisitedMerchant;    
 
     protected int playerMoney;
 
@@ -31,7 +28,6 @@ public class PlayerManager : MonoBehaviour
             if (penalty)  { 
                 playerMoney = 0;
             }
-            Debug.Log(q);
             return true;
         }
         playerMoney -= q;

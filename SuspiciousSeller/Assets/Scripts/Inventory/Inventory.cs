@@ -15,7 +15,6 @@ public class Inventory : MonoBehaviour {
         }
         else {
             Destroy(gameObject);
-            Debug.LogWarning("More than one instance of Inventory found!");
         }
 	}
 
@@ -25,7 +24,7 @@ public class Inventory : MonoBehaviour {
 	public delegate void OnItemChanged();
 	public OnItemChanged onItemChangedCallback;
 
-	public int space = 20;	// Amount of slots in inventory
+	public int space = 8;	// Amount of slots in inventory
 
 	// Current list of items in inventory
 	public List<Item> items = new List<Item>();

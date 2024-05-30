@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
         ShopManager.instance.ShowStoreBuilding(false);
         playerManager.gameObject.SetActive(false);
         uiManager.gameObject.SetActive(false);
+        CameraManager.instance.GetComponent<CameraFollow>().enabled = false;
+        CameraManager.instance.transform.position = new Vector3(0,0,-2);
         ScenesManager.instance.LoadScene("Ending");
     }
     public void EndGame()
@@ -82,8 +84,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       /// playerManager.player = GameObject.Find("Player");
-
         if (SceneManager.GetActiveScene().name != "MainMenu" && playerManager == null)
         {
             playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();

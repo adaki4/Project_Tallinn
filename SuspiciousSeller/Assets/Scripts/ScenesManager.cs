@@ -23,7 +23,7 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene("Introduction");
     }
 
-    public string GetCurrentSceneName() //unity get active scene.name was not working for some reason
+    public string GetCurrentSceneName()
     {
         return SceneManager.GetActiveScene().name;
     }

@@ -25,7 +25,6 @@ public class MerchantDialogue : MonoBehaviour
         {
             if (!canSpeak && !isSpeaking)
             {
-                Debug.Log("i cant speak now i can");
                 speechBubbleInstance = Instantiate(speechBubblePrefab, transform.position+new Vector3(0,3.5f), Quaternion.identity, transform);
                 canSpeak = true;
             }
@@ -64,11 +63,5 @@ public class MerchantDialogue : MonoBehaviour
     void Start()
     {
         ModifiedInkExample.instance.canvas.enabled=false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

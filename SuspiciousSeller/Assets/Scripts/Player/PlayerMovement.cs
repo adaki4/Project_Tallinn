@@ -21,17 +21,6 @@ public class PlayerMovement : MonoBehaviour
     // Move to the point if clicked inside playable area
     public void GoToPoint(Vector2 point)
     {
-        //version 1 -> hard limit
-        // if (point.y < _topLimit
-        //     && _minimalScreenPosition.x < point.x
-        //     && _minimalScreenPosition.y < point.y
-        //     && point.x < _maximalScreenPosition.x
-        //     && point.y < _maximalScreenPosition.y
-        //     )
-        // {
-        //     _target= point;
-        // }
-        // version 2 -> clamp
         _isMoving = true;
         _target.x = Mathf.Clamp(point.x, CameraManager.instance.minimalScreenPosition.x + CameraManager.instance.minimalOffset.x, CameraManager.instance.maximalScreenPosition.x + CameraManager.instance.maximalOffset.x);
         _target.y = Mathf.Clamp(point.y, CameraManager.instance.minimalScreenPosition.y, CameraManager.instance.topScreenLimit);
@@ -58,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (_isMoving) { 
-            //Debug.Log(transform.position);
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed*Time.deltaTime);
             
             if (Vector3.Distance(transform.position, _target) <= _minEnemyDistance) { _isMoving = false; }

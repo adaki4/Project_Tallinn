@@ -15,7 +15,6 @@ public class UpgradeSlot : MonoBehaviour
     public Image icon;
 
 
-    //bool  active?
     void Start()
     {
         ShopManager.instance.OnUpgradeShopOpen += CheckLocked;
@@ -34,12 +33,10 @@ public class UpgradeSlot : MonoBehaviour
             upgrade.state = UpgradeState.Used;
             Destroy(gameObject);
         }
-        // Start is called before the first frame update
     }
 
     public void CheckLocked()
     {
-        //change to paremters in event? like this is not the best
         if (GameManager.instance.canAffordPlayer(upgrade.value))
         {
             if (upgrade.state == UpgradeState.Locked)

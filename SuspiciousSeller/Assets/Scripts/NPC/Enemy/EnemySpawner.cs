@@ -32,8 +32,6 @@ public class EnemySpawner : MonoBehaviour
     private void SetSpawnPosition() {
         float ySpawnPosition = Random.Range(CameraManager.instance.minimalScreenPosition.y, CameraManager.instance.topScreenLimit);
         spawnPosition = new Vector3(transform.position.x, ySpawnPosition);
-        //Idea to make spawner automatically out of camera fov
-        //spawnPosition = new Vector3(-1 * ( Camera.main.transform.position.x - Camera.main.orthographicSize * Screen.width / Screen.height), ySpawnPosition, 0);
     }
     private void SetTimeUntilSpawn() {
         timeUntilSpawn = Random.Range(minimumSpawnTime, maximumSpawnTime);

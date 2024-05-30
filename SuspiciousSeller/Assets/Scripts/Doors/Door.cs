@@ -27,6 +27,5 @@ public class Door : Interactable
             canInteract = false;
             Interact();
         }
-        // PlayerManager.instance.PlayerMovement.MoveInstantly(collision.gameObject.transform.position);
     }
 }

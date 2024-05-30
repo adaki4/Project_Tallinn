@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class ShopManager : MonoBehaviour
 {
     public GameObject upgradeStore; //reference to gameobject shop
-    public GameObject storeVisual; //visual of the shop (maybe w the addons it is not needed)
+    public GameObject storeVisual; //visual of the shop 
 
-    //different aspects the shop can take (addons)
+    //different aspects the shop can take, upgrades (addons)
     protected List <int> boughtUpgrades;
     public  GameObject[] oldElements;
     public GameObject[] newElements;
@@ -32,7 +32,6 @@ public class ShopManager : MonoBehaviour
     {
         if (instance != null)
         {
-            //Debug.LogWarning("More than one instance of Shop Manager found!");
             Destroy(gameObject);
             return;
         }
@@ -47,16 +46,12 @@ public class ShopManager : MonoBehaviour
 
         GameManager.instance.AddMoneyToPlayer(item.value);
         OnMoneyChanged?.Invoke();
-        //more things? idk make it more interesting
         return true;
     }
     public bool Buy(Upgrade upgrade)
     {   
         if(GameManager.instance.SpendMoneyPlayer(upgrade.value))
         {
-            //activate image of upgrade and check if some are now locked
-            //shopImages[upgrade.name].SetActive(true);
-
             oldElements[upgrade.imageObjId].SetActive(false);
             newElements[upgrade.imageObjId].SetActive(true);
             boughtUpgrades.Add(upgrade.imageObjId);
@@ -98,7 +93,6 @@ public class ShopManager : MonoBehaviour
         {
             ShowUpgradeVisual(i);
         }
-        Debug.Log("Allo");
     }
     public bool AreUpgradesCompleted()
     {
@@ -125,11 +119,4 @@ public class ShopManager : MonoBehaviour
         currentUpgradesN = 0;
         shopOpen = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }

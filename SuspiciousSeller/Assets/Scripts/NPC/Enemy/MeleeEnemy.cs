@@ -10,7 +10,6 @@ public class MeleeEnemy : Enemy
         PlayerManager playerManager = other.gameObject.GetComponent<PlayerManager>();
         if (playerManager != null) {
             moveToPlayer = false;
-            Debug.Log("i touched player meele");
             GameManager.instance.SpendMoneyPlayer(damageInCoins, true);
         }
     }

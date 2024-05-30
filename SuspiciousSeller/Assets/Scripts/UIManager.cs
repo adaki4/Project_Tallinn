@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     
     public void PauseScene()
     {
-        Debug.Log("UI");
         GameManager.instance.PausePlay();
         resumeButton.SetActive(true);
         pauseButton.SetActive(false);
@@ -31,7 +30,6 @@ public class UIManager : MonoBehaviour
     }
     public void NewGame()
     {
-        //ScenesManager.instance.NewGame();
         ScenesManager.instance.LoadIntro();
     } 
     public void EndGame()
@@ -39,7 +37,6 @@ public class UIManager : MonoBehaviour
         pauseButton.SetActive(false);
         youWonText.SetActive(true);
     }
-    //update info about player (money, time etc) maybe adding money should work better with events? 
     public void UpdateHUD(int money) 
     {
         moneyText.SetText(money.ToString());

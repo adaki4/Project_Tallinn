@@ -1,8 +1,6 @@
 ﻿using System;
 using Ink.Runtime;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // This is a super bare bones example of how to play and display a ink story in Unity.
@@ -41,16 +39,10 @@ public class ModifiedInkExample : MonoBehaviour {
 	// Creates a new Story object with the compiled story which we can then play!
 	public void StartStory (TextAsset inkFile=null) {
 		if (inkFile != null)
-		{
-			Debug.Log(inkFile.text);
-			//Assign story 
+		{			//Assign story 
 			inkJSONAsset=inkFile;
-			//variables
 		}
-		story = new Story (inkJSONAsset.text);
-
-        // If NPC has story variables, update the story with them before progressing with it
-        
+		story = new Story (inkJSONAsset.text);        
 
         if (OnCreateStory != null) OnCreateStory(story);
 		RefreshView();
@@ -95,7 +87,6 @@ public class ModifiedInkExample : MonoBehaviour {
 	void EndStory()
 	{
         string currentScene = ScenesManager.instance.GetCurrentSceneName();
-		Debug.Log(currentScene);
         string endingButtonMessage = " ";
         switch (currentScene)
         {
@@ -114,11 +105,10 @@ public class ModifiedInkExample : MonoBehaviour {
         }
         Button choice = CreateChoiceView(endingButtonMessage);
         choice.onClick.AddListener(delegate {
-            //StartStory();
 
             if(GameManager.instance!=null) GameManager.instance.FreezePlayer(false);
             if (currentScene == "Introduction") { ScenesManager.instance.NewGame(); }
-			else if (currentScene == "Ending") {/*finish game, restart?*/}
+			else if (currentScene == "Ending") {ScenesManager.instance.LoadScene("MainMenu"); }
 			RemoveChildren();
 
         });

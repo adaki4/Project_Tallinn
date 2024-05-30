@@ -6,16 +6,16 @@ using UnityEngine.EventSystems;
 
 public class PlayerInput : MonoBehaviour
 {
-    PlayerMovement _movementComponent;
-    PlayerAttack _attack;
-    Camera _mainCamera;
+    PlayerMovement movementComponent;
+    PlayerAttack attack;
+    Camera mainCamera;
     
 
     void Start()
     {
-        _movementComponent = GetComponent<PlayerMovement>();
-        _attack = GetComponent<PlayerAttack>();
-        _mainCamera = Camera.main;
+        movementComponent = GetComponent<PlayerMovement>();
+        attack = GetComponent<PlayerAttack>();
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -33,11 +33,11 @@ public class PlayerInput : MonoBehaviour
                 Vector3 screenClickPosition = Input.mousePosition;
 
                 //convert to in game point
-                Vector2 worldClickPositon = _mainCamera.ScreenToWorldPoint(screenClickPosition);
+                Vector2 worldClickPositon = mainCamera.ScreenToWorldPoint(screenClickPosition);
 
                 //check if you can move that point (set limits)
                 //do we hit something? colliding, not raycasting?
-                _movementComponent.GoToPoint(worldClickPositon);
+                movementComponent.GoToPoint(worldClickPositon);
 
                 //movement
 
@@ -49,11 +49,11 @@ public class PlayerInput : MonoBehaviour
         {
             //shoot
             Debug.Log("attack initiated");
-            _attack.Attack();
+            attack.Attack();
         }
         if (Input.GetKeyDown(KeyCode.S)) {
             Debug.Log("switch attatck type");
-            _attack.SwitchAttackType();
+            attack.SwitchAttackType();
         }
     }
 }
