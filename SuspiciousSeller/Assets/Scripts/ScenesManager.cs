@@ -35,7 +35,6 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(name);
     }
     
-    
     private void Awake()
     {
          if (instance != null)

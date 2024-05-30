@@ -109,7 +109,7 @@ public class ModifiedInkExample : MonoBehaviour {
 				}
             case "Ending":
 				{
-					endingButtonMessage = "Go to jail?"; break;
+					endingButtonMessage = "The end"; break;
 				}
         }
         Button choice = CreateChoiceView(endingButtonMessage);

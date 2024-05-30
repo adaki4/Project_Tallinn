@@ -6,43 +6,53 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _resumeButton;
+    private GameObject resumeButton;
     [SerializeField]
-    private GameObject _pauseButton;
+    private GameObject pauseButton;
     [SerializeField] 
-    private TMP_Text _moneyText;
+    private TMP_Text moneyText;
+    [SerializeField]
+    private GameObject youWonText;
 
     public static UIManager instance;
     
-
-    
-   
     public void PauseScene()
     {
         Debug.Log("UI");
         GameManager.instance.PausePlay();
-        _resumeButton.SetActive(true);
-        _pauseButton.SetActive(false);
+        resumeButton.SetActive(true);
+        pauseButton.SetActive(false);
     }
     public void ResumeScene()
     {
         GameManager.instance.ResumePlay();  
-        _resumeButton.SetActive(false);
-        _pauseButton.SetActive(true);
+        resumeButton.SetActive(false);
+        pauseButton.SetActive(true);
     }
     public void NewGame()
     {
         //ScenesManager.instance.NewGame();
         ScenesManager.instance.LoadIntro();
     } 
-    
+    public void EndGame()
+    {
+        pauseButton.SetActive(false);
+        youWonText.SetActive(true);
+    }
     //update info about player (money, time etc) maybe adding money should work better with events? 
     public void UpdateHUD(int money) 
     {
-        _moneyText.SetText(money.ToString());
+        moneyText.SetText(money.ToString());
     }
 
-    
+    private void OnDisable()
+    {
+        youWonText.SetActive(false);
+        pauseButton.SetActive(false);
+        resumeButton.SetActive(false);
+        moneyText.enabled = false;
+    }
+
     private void Awake()
     {
         if (instance != null)
@@ -58,7 +68,9 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        _moneyText.SetText("0");
+        moneyText.SetText("0");
+        youWonText.SetActive(false);
+
     }
 
 

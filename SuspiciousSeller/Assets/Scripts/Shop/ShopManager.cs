@@ -32,7 +32,7 @@ public class ShopManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("More than one instance of Shop Manager found!");
+            //Debug.LogWarning("More than one instance of Shop Manager found!");
             Destroy(gameObject);
             return;
         }
@@ -67,6 +67,8 @@ public class ShopManager : MonoBehaviour
             currentUpgradesN++;
             if(AreUpgradesCompleted())
             {
+                ShowUpgradeShop(false);
+                OnUpgradeShopClose?.Invoke();
                 GameManager.instance.EndGame();
             }
             return true;

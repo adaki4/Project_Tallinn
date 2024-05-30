@@ -52,11 +52,19 @@ public class GameManager : MonoBehaviour
         return playerManager.CanAfford(q);
     }
 
+    public IEnumerator DelayEnd()
+    {
+        yield return new WaitForSeconds(5);
+        ShopManager.instance.ShowStoreBuilding(false);
+        playerManager.gameObject.SetActive(false);
+        uiManager.gameObject.SetActive(false);
+        ScenesManager.instance.LoadScene("Ending");
+    }
     public void EndGame()
     {
-        //show text with winning condition, show shop with all the upgrades
-        //maybe ending dialogue
-        Debug.Log("You won :p ");
+        uiManager.EndGame();
+        playerManager.Freeze(true);
+        StartCoroutine(DelayEnd());
     }
     
     private void Awake()

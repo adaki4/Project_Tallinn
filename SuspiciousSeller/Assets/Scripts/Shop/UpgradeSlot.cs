@@ -27,11 +27,6 @@ public class UpgradeSlot : MonoBehaviour
         icon =upgrade.icon;
     }
 
-    private void Instance_OnMoneyChanged()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnClickUpgrade()
     {
         if (upgrade.state == UpgradeState.Unlocked && ShopManager.instance.Buy(upgrade))
@@ -66,6 +61,8 @@ public class UpgradeSlot : MonoBehaviour
     private void OnDestroy()
     {
         ShopManager.instance.OnUpgradeShopOpen -= CheckLocked;
+        ShopManager.instance.OnMoneyChanged -= CheckLocked;
+
     }
 }
 
