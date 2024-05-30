@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7406131071644867875}
   - component: {fileID: 3944046996327234421}
   m_Layer: 0
-  m_Name: cloth_2
+  m_Name: white_tank_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 1
-  item: {fileID: 11400000, guid: 617d638cbbbd6d6419e4ab5afb06d92d, type: 2}
+  item: {fileID: 11400000, guid: bcef359b96b33614eb76162feb82e39d, type: 2}
 --- !u!1 &1753119800253676335
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,9 +99,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753119800253676335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 0.025, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.043971516, z: 0}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: -0.003, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.27622145, y: 0.24291752, z: 0.069974974}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1184306764314508307}
   m_RootOrder: 0
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 18e6cf1b84403dd46bacc7826dcee32b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9deaef63554943046912c22b00daf477, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
