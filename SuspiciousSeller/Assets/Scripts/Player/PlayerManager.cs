@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -10,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerMovement PlayerMovement {get; set;}
 
     public static PlayerManager instance;
+    public bool hasVisitedMerchant;
 
     bool _active;
     
@@ -26,8 +28,11 @@ public class PlayerManager : MonoBehaviour
     {
         if (q > playerMoney)
         {
-            if (penalty) playerMoney = 0;
-            return false;
+            if (penalty)  { 
+                playerMoney = 0;
+            }
+            Debug.Log(q);
+            return true;
         }
         playerMoney -= q;
         return true;

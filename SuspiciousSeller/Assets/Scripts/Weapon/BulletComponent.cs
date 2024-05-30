@@ -13,7 +13,8 @@ public class BulletComponent : MonoBehaviour
     [SerializeField]
     private bool canHitPlayer;
     [SerializeField]
-    private int damageToPlayerInCoins;
+    private bool canHitNPC;
+    public int damageToPlayerInCoins;
     private Rigidbody2D rd;
     void Start()
     {
@@ -26,15 +27,15 @@ public class BulletComponent : MonoBehaviour
         rd.velocity = transform.up * speed;
     }
     private void OnTriggerEnter2D(Collider2D other) {
-        NPC npc = other.gameObject.GetComponentInParent<NPC>();
-        PlayerManager player = other.gameObject.GetComponentInParent<PlayerManager>();
-        if (npc != null) {
+        NPC npc = other.gameObject.GetComponent<NPC>();
+        PlayerManager player = other.gameObject.GetComponent<PlayerManager>();
+        if (npc != null && canHitNPC) {
             Destroy(gameObject);
             npc.OnHit();
         }
         else if (player != null && canHitPlayer) {
+            GameManager.instance.SpendMoneyPlayer(damageToPlayerInCoins, true);
             Destroy(gameObject);
-            player.SubstractMoney(damageToPlayerInCoins);
         }
     }
 }
