@@ -17,14 +17,20 @@ public abstract class Weapon : MonoBehaviour {
     protected float fireRate;
     protected float lastAttackedAt = 0;
     [SerializeField]
-    protected float attackRange;
-    [SerializeField]
     public Sprite sprite; 
+    [SerializeField]
+    protected AudioClip audioClip;
     [HideInInspector]
     public Animation attackAnimation;
+    protected AudioSource audioSource;
     public abstract void Attack();
-
+    protected void PlaySoundEffectAndAnimation(string animation) {
+        audioSource.clip = audioClip;
+        audioSource.Play();
+        attackAnimation.Play(animation);
+    }
     protected void Start() {
         attackAnimation = GetComponentInChildren<Animation>();
+        audioSource = GetComponent<AudioSource>();
     }
 }

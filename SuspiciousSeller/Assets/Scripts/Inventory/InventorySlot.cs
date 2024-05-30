@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.WSA;
 
 /* Sits on all InventorySlots. */
 

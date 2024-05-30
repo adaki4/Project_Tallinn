@@ -7,11 +7,12 @@ public class MeleeEnemy : Enemy
 {
     private bool moveToPlayer;
     private void OnTriggerEnter2D(Collider2D other) {
-        var player = other.GetComponent<PlayerManager>();
-            if (player != null) {
-                moveToPlayer = false;
-                player.SubstractMoney(damageInCoins);
-            }
+        PlayerManager playerManager = other.gameObject.GetComponent<PlayerManager>();
+        if (playerManager != null) {
+            moveToPlayer = false;
+            Debug.Log("i touched player meele");
+            GameManager.instance.SpendMoneyPlayer(damageInCoins, true);
+        }
     }
     void OnTriggerExit2D() {
         moveToPlayer = true;

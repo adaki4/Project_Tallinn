@@ -8,10 +8,9 @@ public class LongRangeWeapon : Weapon
 
     private Quaternion relativeAttackRotation;
 
-    public override void Attack()
-    {   
+    public override void Attack() {
         if (Time.time > lastAttackedAt + fireRate) {
-            attackAnimation.Play("Gun");
+            PlaySoundEffectAndAnimation("Gun");
             Instantiate(bulletPrefab, attackTransform.position, relativeAttackRotation);
             lastAttackedAt = Time.time;
         }

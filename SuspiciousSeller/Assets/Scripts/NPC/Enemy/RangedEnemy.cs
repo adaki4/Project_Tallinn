@@ -21,7 +21,11 @@ public class RangedEnemy : Enemy
             Debug.Log("enemy shooting");
             lastAttackedAt = Time.time;
             
-            Instantiate(bulletPrefab, firingPoint.transform.position, relativeAttackRotation);
+            GameObject bullet = Instantiate(bulletPrefab, firingPoint.transform.position, relativeAttackRotation);
+            BulletComponent bulletComponent = GetComponent<BulletComponent>();
+            if (bulletComponent != null) {
+                bulletComponent.damageToPlayerInCoins = damageInCoins;
+            }
         }
     }
     new void Awake() {

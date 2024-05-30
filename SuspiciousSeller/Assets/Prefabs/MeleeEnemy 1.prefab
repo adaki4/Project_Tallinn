@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5031196712866564804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.9195397, y: 0.347376, z: -0.14455618}
-  m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clothesList:
   - {fileID: 1139886179017988852, guid: f42a3d4e1840dc743a6e5abe87a4ca61, type: 3}
-  health: 2
-  damageInCoins: 5
-  movementSpeed: 1
+  health: 3
+  damageInCoins: 10
+  movementSpeed: 2.82
   firingPoint: {fileID: 0}

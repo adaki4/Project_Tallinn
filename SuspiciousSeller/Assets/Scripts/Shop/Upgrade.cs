@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Progress;
 using UnityEngine.UI;
 /* The base item class. All items should derive from this. */
 
@@ -9,7 +8,7 @@ public enum UpgradeState {Locked, Unlocked, Used};
 public class Upgrade : ScriptableObject
 {
     new public string name = "New Upgrade";
-    new public string description = "Description";
+    public string description = "Description";
     public int imageObjId;
     public UpgradeState state= UpgradeState.Locked;
     public Image icon = null; 

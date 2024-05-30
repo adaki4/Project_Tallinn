@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
         uiManager.UpdateHUD(playerManager.GetMoney());
     }
     
-    public bool SpendMoneyPlayer(int q)
+    public bool SpendMoneyPlayer(int q, bool penalty=false)
     {
         //substract money
-        bool spent = playerManager.SubstractMoney(q);
+        bool spent = playerManager.SubstractMoney(q, penalty);
         //update ui
         uiManager.UpdateHUD(playerManager.GetMoney());
         return spent;

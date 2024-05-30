@@ -17,7 +17,6 @@ public class MerchantDialogue : MonoBehaviour
 
     protected bool isSpeaking=false;
 
-    protected bool firstTimebitch=true;
 
     //NPC collides with player, awaits to speak
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +25,6 @@ public class MerchantDialogue : MonoBehaviour
         {
             if (!canSpeak && !isSpeaking)
             {
-                Debug.Log(firstTimebitch);
                 Debug.Log("i cant speak now i can");
                 speechBubbleInstance = Instantiate(speechBubblePrefab, transform.position+new Vector3(0,3.5f), Quaternion.identity, transform);
                 canSpeak = true;
@@ -43,8 +41,6 @@ public class MerchantDialogue : MonoBehaviour
             if (speechBubbleInstance!=null) { 
                 Destroy(speechBubbleInstance); 
             }
-            firstTimebitch = false;
-
         }
     }
     protected virtual void OnMouseUpAsButton()
@@ -53,8 +49,9 @@ public class MerchantDialogue : MonoBehaviour
         {
             ModifiedInkExample.instance.canvas.enabled=true;
             Destroy(speechBubbleInstance);
-            if (firstTimebitch) {
+            if (!PlayerManager.instance.hasVisitedMerchant) {
                 ModifiedInkExample.instance.StartStory(inkAsset);
+                PlayerManager.instance.hasVisitedMerchant=true;
             }
             else {
                 ModifiedInkExample.instance.StartStory(inkAsset2);
