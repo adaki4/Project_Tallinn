@@ -27,7 +27,8 @@ Ha Ha Ha! Is comfortable seeing people like me around here. Sometimes it gets lo
 ->services2
 ==services2==
 So what can I offer for you?
-*I just opened a second-hand clothing store. At the moment it doesn't look too inviting, so I am intending to repair it and better its functioning.->services3
+*I just opened a second-hand clothing store. 
+At the moment it doesn't look too inviting, so I am intending to repair it and better its functioning.->services3
 
 ==services3==
 Well I can definetly help you with that. I can bring you a list of upgrade's offers from fellow businessmen and construction workers that can make your store pop! But I wonder, being a new business and all... how could you afford them? Do you have something to sell?

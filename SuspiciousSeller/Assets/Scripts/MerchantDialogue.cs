@@ -24,11 +24,11 @@ public class MerchantDialogue : MonoBehaviour
     {
         if(collision.GetComponent<PlayerManager>() != null)
         {
-            if(!canSpeak&&!isSpeaking)
+            if (!canSpeak && !isSpeaking)
             {
                 Debug.Log(firstTimebitch);
                 Debug.Log("i cant speak now i can");
-                speechBubbleInstance=Instantiate(speechBubblePrefab, transform.position+new Vector3(0,3.5f), Quaternion.identity, transform);
+                speechBubbleInstance = Instantiate(speechBubblePrefab, transform.position+new Vector3(0,3.5f), Quaternion.identity, transform);
                 canSpeak = true;
             }
         }
@@ -37,8 +37,12 @@ public class MerchantDialogue : MonoBehaviour
     {
         if (collision.GetComponent<PlayerManager>() != null)
         {
-           canSpeak=false; isSpeaking = false;
-           if(speechBubbleInstance!=null) { Destroy(speechBubbleInstance); }
+            ModifiedInkExample.instance.canvas.enabled=false;
+            canSpeak = false; 
+            isSpeaking = false;
+            if (speechBubbleInstance!=null) { 
+                Destroy(speechBubbleInstance); 
+            }
             firstTimebitch = false;
 
         }
@@ -47,13 +51,12 @@ public class MerchantDialogue : MonoBehaviour
     {
         if (canSpeak&&!isSpeaking)
         {
+            ModifiedInkExample.instance.canvas.enabled=true;
             Destroy(speechBubbleInstance);
-            if (firstTimebitch)
-            {
+            if (firstTimebitch) {
                 ModifiedInkExample.instance.StartStory(inkAsset);
             }
-            else
-            {
+            else {
                 ModifiedInkExample.instance.StartStory(inkAsset2);
             }
             isSpeaking = true;
@@ -63,6 +66,7 @@ public class MerchantDialogue : MonoBehaviour
 
     void Start()
     {
+        ModifiedInkExample.instance.canvas.enabled=false;
     }
 
     // Update is called once per frame

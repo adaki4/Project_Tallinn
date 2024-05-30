@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: bdc6b3d460a59da44b0d51eeef9d72d2
+=======
+guid: 5c58beccc5e44474a9a8f81180a16089
+>>>>>>> c6dd283 (fix ink text style, add credits)
 TextScriptImporter:
   externalObjects: {}
   userData: 
