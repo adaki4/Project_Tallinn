@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7406131071644867875}
   - component: {fileID: 3944046996327234421}
   m_Layer: 0
-  m_Name: cloth_3
+  m_Name: green_shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 1
-  item: {fileID: 11400000, guid: bcef359b96b33614eb76162feb82e39d, type: 2}
+  item: {fileID: 11400000, guid: f8cb2afbe6d977c4eb2dc258ca38538f, type: 2}
 --- !u!1 &1753119800253676335
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,8 +99,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753119800253676335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003, y: 0.001, z: 0}
-  m_LocalScale: {x: 0.27622145, y: 0.24291752, z: 0.069974974}
+  m_LocalPosition: {x: 0.004, y: 0.025, z: 0}
+  m_LocalScale: {x: 0.39474323, y: 0.34714916, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1184306764314508307}
@@ -147,7 +147,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9deaef63554943046912c22b00daf477, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4348ed6ccccb68c478725358bd8d8b75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
